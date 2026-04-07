@@ -745,7 +745,8 @@ function loadIntro(){
     if(last.muryou){
       document.getElementById('prev-text').textContent = '無量';
     }else{
-      document.getElementById('prev-text').textContent = `${last.wp || ''} ${fmt(last.postPos)} / ${last.wn || ''} ${fmt(last.postNeg)}`;
+      document.getElementById('prev-text').textContent =
+  `${last.wp || ''} ${fmt(last.postPos)} / ${last.wn || ''} ${fmt(last.postNeg)}`;
     }
   }else{
     document.getElementById('prev-badge').style.display = 'none';
@@ -764,6 +765,7 @@ function arrowSVG(dir, color){
 }
 
 function fmt(v){
+  if(v === null || v === undefined || isNaN(v)) return '--';
   return parseFloat(v).toFixed(1) + '%';
 }
 
