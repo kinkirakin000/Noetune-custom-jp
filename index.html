@@ -127,7 +127,7 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;background:#6B9080;bo
   <div style="height:20px"></div>
   <div style="font-size:.68rem;color:#AAA;letter-spacing:.2em;font-family:'Noto Serif JP',serif;font-weight:300">— カスタム版 —</div>
   <div style="height:28px"></div>
-  <div style="font-family:'Noto Serif JP',serif;font-size:1.05rem;font-weight:300;color:#444;letter-spacing:.3em">カスタム版</div>
+  <div style="font-family:'Noto Serif JP',serif;font-size:1.05rem;font-weight:300;color:#444;letter-spacing:.3em">カスタム</div>
   <div style="height:36px"></div>
   <div class="today-badge" id="today-badge" style="display:none;margin-top:.4rem">今日：✓</div>
   <div class="prev-badge" id="prev-badge" style="display:none;margin-top:.3rem">前回：<span id="prev-text"></span></div>
@@ -158,10 +158,10 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;background:#6B9080;bo
   <button class="btn" id="btn-words" onclick="saveWords()" style="font-size:.88rem;padding:12px 44px;margin-top:2rem">次へ</button>
 </div>
 
-<!-- Init ポジティブワード -->
+<!-- Init 安心 -->
 <div class="screen" id="s-ia">
   <div class="label" id="lbl-ia"></div>
-  <div class="title">「<span id="t-ia-title"></span>」の強度・実現度は？</div>
+  <div class="title"><span id="t-ia-title"></span>の強度・実現度は？</div>
   <div class="score-num" id="num-ia" style="color:#6B9080">0.000</div>
   <div class="slider-wrap">
     <input type="range" min="0" max="100" step="0.001" value="0" id="sl-ia" oninput="document.getElementById('num-ia').textContent=parseFloat(this.value).toFixed(3)">
@@ -170,10 +170,10 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;background:#6B9080;bo
   <button class="btn" onclick="onInitAnshin()">確定</button>
 </div>
 
-<!-- Init ネガティブワード -->
+<!-- Init 不安 -->
 <div class="screen" id="s-if">
   <div class="label" id="lbl-if"></div>
-  <div class="title">「<span id="t-if-title"></span>」の強度・実現度は？</div>
+  <div class="title"><span id="t-if-title"></span>の強度・実現度は？</div>
   <div class="score-num" id="num-if" style="color:#C47A5A">0.000</div>
   <div class="slider-wrap">
     <input type="range" min="0" max="100" step="0.001" value="0" id="sl-if" oninput="document.getElementById('num-if').textContent=parseFloat(this.value).toFixed(3)">
@@ -241,17 +241,17 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;background:#6B9080;bo
 <!-- Round C2 -->
 <div class="screen" id="s-rc2">
   <div class="label" id="lbl-rc2"></div>
-  <div class="breath-focus">この瞬間のすべてを感じながら<br>深呼吸1回</div>
+  <div class="breath-focus">この宇宙全てを感じながら<br>深呼吸1回</div>
   <div style="position:relative;display:inline-block">
     <div class="breath-circle pulse" id="circle-c2" onclick="startBreath('c2')"></div>
     <div id="hint-c2" style="position:absolute;bottom:-1.6rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">触れる</div>
   </div>
 </div>
 
-<!-- Final ポジティブワード -->
+<!-- Final 安心 -->
 <div class="screen" id="s-fa">
   <div class="label" id="lbl-fa"></div>
-  <div class="title">「<span id="t-fa-title"></span>」の強度・実現度は？</div>
+  <div class="title"><span id="t-fa-title"></span>の強度・実現度は？</div>
   <div class="score-num" id="num-fa" style="color:#6B9080">0.000</div>
   <div class="slider-wrap">
     <input type="range" min="0" max="100" step="0.001" value="0" id="sl-fa" oninput="document.getElementById('num-fa').textContent=parseFloat(this.value).toFixed(3)">
@@ -261,10 +261,10 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;background:#6B9080;bo
   <button class="btn-ghost" onclick="setMuryou()" style="margin-top:.8rem;font-size:.8rem">無量（測れない）</button>
 </div>
 
-<!-- Final ネガティブワード -->
+<!-- Final 不安 -->
 <div class="screen" id="s-ff">
   <div class="label" id="lbl-ff"></div>
-  <div class="title">「<span id="t-ff-title"></span>」の強度・実現度は？</div>
+  <div class="title"><span id="t-ff-title"></span>の強度・実現度は？</div>
   <div class="score-num" id="num-ff" style="color:#C47A5A">0.000</div>
   <div class="slider-wrap">
     <input type="range" min="0" max="100" step="0.001" value="0" id="sl-ff" oninput="document.getElementById('num-ff').textContent=parseFloat(this.value).toFixed(3)">
@@ -304,7 +304,8 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;background:#6B9080;bo
     </div>
     <div style="margin-top:1.8rem;display:flex;flex-direction:column;align-items:center;gap:.5rem">
       <button onclick="shareResult()" style="display:inline-flex;align-items:center;gap:.38rem;background:none;border:none;color:#A8A8A0;cursor:pointer;padding:.4rem .8rem;font-family:'Noto Serif JP',serif;font-size:.78rem;letter-spacing:.1em"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="7.5,1 7.5,9.5"/><polyline points="4,4 7.5,1 11,4"/><path d="M2.5,7.5v5.5h10V7.5"/></svg>Share</button>
-      <button class="btn-ghost" onclick="restart()" style="border-color:#DDD;color:#CCC;font-size:.78rem;margin-top:0">もう一度</button>
+      <button class="btn-ghost" onclick="startFresh()" style="border-color:#DDD;color:#CCC;font-size:.78rem;margin-top:0">新しいテーマで再実行</button>
+      <button onclick="retryCorners()" style="background:none;border:none;font-family:'Noto Serif JP',serif;font-size:.82rem;color:#6B9080;letter-spacing:.1em;cursor:pointer;margin-top:.6rem;padding:.3rem .8rem">同じテーマで再実行</button>
       <button onclick="startProFlow()" style="background:none;border:none;font-family:'Noto Serif JP',serif;font-size:.82rem;color:#A0A09A;letter-spacing:.12em;cursor:pointer;margin-top:.5rem;padding:.3rem .8rem">カスタム</button>
     </div>
   </div>
@@ -330,28 +331,15 @@ function bcPro(phase){
 function setLbl(id,html){const el=document.getElementById(id);if(el)el.innerHTML=html;}
 
 // ── Round definitions (all 4) ──
-function getRD(){
-  return [
-    {
-      a:`「${W.neg}」が実現しているとしたら、<br>あなたはどんな状態？`,
-      b:(a)=>`「${a}」が全くない世界にいるとき、<br>あなたはどんな状態？`
-    },
-    {
-      a:`「${W.pos}」が実現していないとしたら、<br>あなたはどんな状態？`,
-      b:(a)=>`「${a}」が全くない世界にいるとき、<br>あなたはどんな状態？`
-    },
-    {
-      a:`「${W.neg}」が実現していないとしたら、<br>あなたはどんな状態？`,
-      b:(a)=>`「${a}」が完全に実現しているとき、<br>あなたはどんな状態？`
-    },
-    {
-      a:`「${W.pos}」が実現しているとしたら、<br>あなたはどんな状態？`,
-      b:(a)=>`「${a}」が完全に実現しているとき、<br>あなたはどんな状態？`
-    }
-  ];
-}
+const RD = [
+  { a:'「不安」がすでに実現しているとき、<br>あなたはどんな状態？',  b:(a)=>'「'+a+'」がすでに存在しないとき、<br>あなたはどんな状態？' },
+  { a:'「安心」がすでに存在しないとき、<br>あなたはどんな状態？',  b:(a)=>'「'+a+'」がすでに存在しないとき、<br>あなたはどんな状態？' },
+  { a:'「不安」がすでに存在しないとき、<br>あなたはどんな状態？',  b:(a)=>'「'+a+'」がすでに実現しているとき、<br>あなたはどんな状態？' },
+  { a:'「安心」がすでに実現しているとき、<br>あなたはどんな状態？',  b:(a)=>'「'+a+'」がすでに実現しているとき、<br>あなたはどんな状態？' }
+];
 
 const S = {
+  prevFa:null,prevFf:null,
   ia:0, ifa:0, fa:0, ff:0, muryou:false,
   curCorner: null,       // which corner is active
   done: [false,false,false,false], // cleared corners
@@ -418,21 +406,29 @@ function buildThemeList(){
 
 
 // ── Custom words
-const W = { pos: 'ポジティブワード', neg: 'ネガティブワード' };
+const W = { pos: '安心', neg: '不安' };
 
-
+function getRD(){return [
+  { a:`「${W.neg}」が実現しているとしたら、<br>あなたはどんな状態？`,      b:(a)=>`「${a}」が全くない世界にいるとき、<br>あなたはどんな状態？` },
+  { a:`「${W.pos}」が実現していないとしたら、<br>あなたはどんな状態？`,    b:(a)=>`「${a}」が全くない世界にいるとき、<br>あなたはどんな状態？` },
+  { a:`「${W.neg}」が実現していないとしたら、<br>あなたはどんな状態？`,    b:(a)=>`「${a}」が完全に実現しているとき、<br>あなたはどんな状態？` },
+  { a:`「${W.pos}」が実現しているとしたら、<br>あなたはどんな状態？`,      b:(a)=>`「${a}」が完全に実現しているとき、<br>あなたはどんな状態？` }
+];}
 
 function applyWords(){
   const p=W.pos, n=W.neg;
+  // Titles
   ['t-ia-title','t-fa-title'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=p;});
   ['t-if-title','t-ff-title'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=n;});
+  // Result labels
   const la=document.getElementById('lbl-a'),lf=document.getElementById('lbl-f');
   if(la)la.textContent=p; if(lf)lf.textContent=n;
+  // Corner labels
   const cl=[
-    'ネガのみ<br>↓ 外',
-    'ポジなし<br>↓ 外',
-    'ネガなし<br>↓ 内',
-    'ポジのみ<br>↓ 内'
+    n+'の中<br>↓ 外',
+    p+'の外<br>↓ 外',
+    n+'の外<br>↓ 中',
+    p+'の中<br>↓ 中'
   ];
   cl.forEach((t,i)=>{const el=document.getElementById('cl-'+i);if(el)el.innerHTML=t;});
 }
@@ -450,6 +446,7 @@ function saveWords(){
   applyWords();
   setLbl('lbl-ia',bcPro(0));setLbl('lbl-if',bcPro(0));
   setLbl('lbl-fa',bcPro(3));setLbl('lbl-ff',bcPro(3));
+  buildThemeList();
   fwd('s-ia');
 }
 
@@ -510,11 +507,7 @@ function startFresh(){
   setLbl('lbl-ia',bcPro(0));setLbl('lbl-if',bcPro(0));
   ['sl-ia','sl-if','sl-fa','sl-ff'].forEach(id=>document.getElementById(id).value=0);
   ['num-ia','num-if','num-fa','num-ff'].forEach(id=>document.getElementById(id).textContent='0.000');
-  W.pos='ポジティブワード';W.neg='ネガティブワード';
-  document.getElementById('word-pos').value='';
-  document.getElementById('word-neg').value='';
-  applyWords();
-  fwd('s-words');
+  W.pos='安心';W.neg='不安';document.getElementById('word-pos').value='';document.getElementById('word-neg').value='';fwd('s-words');
 }
 
 // ── Init ──
@@ -562,7 +555,7 @@ function skipRound(step){
   } else {
     if(!S.rounds[S.curCorner])S.rounds[S.curCorner]={};
     S.rounds[S.curCorner].b='—';
-    document.getElementById('focus-c1').innerHTML='「—」を感じながら<br>深呼吸1回';
+    document.getElementById('focus-c1').innerHTML='深呼吸1回';
     setLbl('lbl-rc1','コーナー '+(S.curCorner+1));
     rcircle('c1');S.breathing=false;S.bc=0;
     fwd('s-rc1');
@@ -584,7 +577,7 @@ function onRoundB(){
   const v=document.getElementById('input-rb').value.trim();if(!v)return;
   S.rounds[S.curCorner].b=v;
   const b=v;
-  document.getElementById('focus-c1').innerHTML='回答Bを感じながら<br><em>'+b+'</em><br>深呼吸1回';
+  document.getElementById('focus-c1').innerHTML='<em>'+b+'</em><br>を感じながら<br>深呼吸1回';
   setLbl('lbl-rc1','コーナー '+(S.curCorner+1));
   rcircle('c1');S.breathing=false;S.bc=0;
   fwd('s-rc1');
@@ -682,7 +675,8 @@ function showResult(){
     ['r-ia','r-fa'].forEach(id=>document.getElementById(id).style.color='#5A8A72');
     ['r-if','r-ff'].forEach(id=>document.getElementById(id).style.color='#C47A5A');
   }
-    ls('ntp_last',{ia:S.ia,ifa:S.ifa,fa:S.fa,ff:S.ff,muryou:S.muryou,wp:W.pos,wn:W.neg});
+    S.prevFa=S.fa;S.prevFf=S.ff;
+  ls('ntp_last',{ia:S.ia,ifa:S.ifa,fa:S.fa,ff:S.ff,muryou:S.muryou,wp:W.pos,wn:W.neg});
   ls('ntp_today',new Date().toISOString().slice(0,10));
   fwd('s-result');
 }
@@ -692,6 +686,34 @@ function shareResult(){
 }
 
 // ── Restart ──
+
+function retryCorners(){
+  // Reset corners only, keep words and initial measurement
+  S.done=[false,false,false,false];
+  S.rounds=[{},{},{},{}];
+  S.breathing=false;S.bc=0;
+  S.curCorner=null;
+  hist=[];
+  updateCornerGrid();
+  go('s-corners');
+}
+
+
+function retryCorners(){
+  // Keep ia/ifa from prev final for comparison
+  S.ia=S.prevFa!==null?S.prevFa:S.fa;
+  S.ifa=S.prevFf!==null?S.prevFf:S.ff;
+  S.fa=0;S.ff=0;S.muryou=false;
+  S.done=[false,false,false,false];
+  S.rounds=[{},{},{},{}];
+  S.breathing=false;S.bc=0;
+  hist=[];
+  applyWords();
+  updateCornerGrid();
+  setLbl('lbl-corners-hdr',bcPro(1));
+  go('s-corners');
+}
+
 function restart(){
   hist=[];S.done=[false,false,false,false];S.muryou=false;S.breathing=false;localStorage.removeItem('ntp_draft');
   loadIntro();
