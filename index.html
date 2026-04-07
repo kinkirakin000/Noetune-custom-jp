@@ -161,7 +161,7 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;background:#6B9080;bo
 <!-- Init ポジティブワード -->
 <div class="screen" id="s-ia">
   <div class="label" id="lbl-ia"></div>
-  <div class="title">「<span id="t-ia-title"></span>」の強度は？</div>
+  <div class="title">「<span id="t-ia-title"></span>」の強度・実現度は？</div>
   <div class="score-num" id="num-ia" style="color:#6B9080">0.000</div>
   <div class="slider-wrap">
     <input type="range" min="0" max="100" step="0.001" value="0" id="sl-ia" oninput="document.getElementById('num-ia').textContent=parseFloat(this.value).toFixed(3)">
@@ -173,7 +173,7 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;background:#6B9080;bo
 <!-- Init ネガティブワード -->
 <div class="screen" id="s-if">
   <div class="label" id="lbl-if"></div>
-  <div class="title">「<span id="t-if-title"></span>」の強度は？</div>
+  <div class="title">「<span id="t-if-title"></span>」の強度・実現度は？</div>
   <div class="score-num" id="num-if" style="color:#C47A5A">0.000</div>
   <div class="slider-wrap">
     <input type="range" min="0" max="100" step="0.001" value="0" id="sl-if" oninput="document.getElementById('num-if').textContent=parseFloat(this.value).toFixed(3)">
@@ -251,7 +251,7 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;background:#6B9080;bo
 <!-- Final ポジティブワード -->
 <div class="screen" id="s-fa">
   <div class="label" id="lbl-fa"></div>
-  <div class="title">「<span id="t-fa-title"></span>」の強度は？</div>
+  <div class="title">「<span id="t-fa-title"></span>」の強度・実現度は？</div>
   <div class="score-num" id="num-fa" style="color:#6B9080">0.000</div>
   <div class="slider-wrap">
     <input type="range" min="0" max="100" step="0.001" value="0" id="sl-fa" oninput="document.getElementById('num-fa').textContent=parseFloat(this.value).toFixed(3)">
@@ -264,7 +264,7 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;background:#6B9080;bo
 <!-- Final ネガティブワード -->
 <div class="screen" id="s-ff">
   <div class="label" id="lbl-ff"></div>
-  <div class="title">「<span id="t-ff-title"></span>」の強度は？</div>
+  <div class="title">「<span id="t-ff-title"></span>」の強度・実現度は？</div>
   <div class="score-num" id="num-ff" style="color:#C47A5A">0.000</div>
   <div class="slider-wrap">
     <input type="range" min="0" max="100" step="0.001" value="0" id="sl-ff" oninput="document.getElementById('num-ff').textContent=parseFloat(this.value).toFixed(3)">
@@ -333,19 +333,19 @@ function setLbl(id,html){const el=document.getElementById(id);if(el)el.innerHTML
 function getRD(){
   return [
     {
-      a:`この世界に、「${W.neg}」のみが存在するとしたら、<br>あなたはどんな状態？`,
+      a:`「${W.neg}」が実現しているとしたら、<br>あなたはどんな状態？`,
       b:(a)=>`「${a}」の外にいる時、<br>あなたはどんな状態？`
     },
     {
-      a:`この世界に、「${W.pos}」が存在しないとしたら、<br>あなたはどんな状態？`,
+      a:`「${W.pos}」が実現していないとしたら、<br>あなたはどんな状態？`,
       b:(a)=>`「${a}」の外にいる時、<br>あなたはどんな状態？`
     },
     {
-      a:`この世界に、「${W.neg}」が存在しないとしたら、<br>あなたはどんな状態？`,
+      a:`「${W.neg}」が実現していないとしたら、<br>あなたはどんな状態？`,
       b:(a)=>`「${a}」の内にいる時、<br>あなたはどんな状態？`
     },
     {
-      a:`この世界に、「${W.pos}」のみが存在するとしたら、<br>あなたはどんな状態？`,
+      a:`「${W.pos}」が実現しているとしたら、<br>あなたはどんな状態？`,
       b:(a)=>`「${a}」の内にいる時、<br>あなたはどんな状態？`
     }
   ];
