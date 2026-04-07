@@ -146,7 +146,7 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;background:#6B9080;bo
 <!-- Corner1 B -->
 <div class="screen" id="s-c1b">
   <div class="label">コーナー①</div>
-  <div class="title">「A」に含まれる<br>ネガティブな感覚は？</div>
+  <div class="title" id="title-c1b"></div>
   <input class="text-input" id="input-c1b" placeholder="例：重い、苦しい、張りつめる" autocomplete="off">
   <button class="btn" id="btn-c1b" disabled onclick="onC1B()" style="opacity:.45;font-size:.82rem;padding:11px 36px">次へ</button>
   <button class="small-skip" onclick="skipStep('c1b')">スキップ</button>
@@ -185,7 +185,7 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;background:#6B9080;bo
 <!-- Corner4 B -->
 <div class="screen" id="s-c4b">
   <div class="label">コーナー④</div>
-  <div class="title">「A」に含まれる<br>ポジティブな感覚は？</div>
+  <div class="title" id="title-c4b"></div>
   <input class="text-input" id="input-c4b" placeholder="例：軽い、広がる、あたたかい" autocomplete="off">
   <button class="btn" id="btn-c4b" disabled onclick="onC4B()" style="opacity:.45;font-size:.82rem;padding:11px 36px">次へ</button>
   <button class="small-skip" onclick="skipStep('c4b')">スキップ</button>
@@ -463,6 +463,10 @@ function onC1A(){
   const v = document.getElementById('input-c1a').value.trim();
   if(!v) return;
   S.c1a = v;
+
+  document.getElementById('title-c1b').innerHTML =
+    '「' + escapeHtml(v) + '」に含まれる<br>ネガティブな感覚は？';
+
   fwd('s-c1b');
 }
 
@@ -479,6 +483,10 @@ function onC4A(){
   const v = document.getElementById('input-c4a').value.trim();
   if(!v) return;
   S.c4a = v;
+
+  document.getElementById('title-c4b').innerHTML =
+    '「' + escapeHtml(v) + '」に含まれる<br>ポジティブな感覚は？';
+
   fwd('s-c4b');
 }
 
