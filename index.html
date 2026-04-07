@@ -304,9 +304,8 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;background:#6B9080;bo
     </div>
     <div style="margin-top:1.8rem;display:flex;flex-direction:column;align-items:center;gap:.5rem">
       <button onclick="shareResult()" style="display:inline-flex;align-items:center;gap:.38rem;background:none;border:none;color:#A8A8A0;cursor:pointer;padding:.4rem .8rem;font-family:'Noto Serif JP',serif;font-size:.78rem;letter-spacing:.1em"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="7.5,1 7.5,9.5"/><polyline points="4,4 7.5,1 11,4"/><path d="M2.5,7.5v5.5h10V7.5"/></svg>Share</button>
-      <button class="btn-ghost" onclick="startFresh()" style="border-color:#DDD;color:#CCC;font-size:.78rem;margin-top:0">新しいテーマで再実行</button>
-      <button onclick="retryCorners()" style="background:none;border:none;font-family:'Noto Serif JP',serif;font-size:.82rem;color:#6B9080;letter-spacing:.1em;cursor:pointer;margin-top:.6rem;padding:.3rem .8rem">同じテーマで再実行</button>
-      <button onclick="startProFlow()" style="background:none;border:none;font-family:'Noto Serif JP',serif;font-size:.82rem;color:#A0A09A;letter-spacing:.12em;cursor:pointer;margin-top:.5rem;padding:.3rem .8rem">カスタム</button>
+      <button class="btn-ghost" onclick="retryCorners()" style="border-color:#6B9080;color:#6B9080;font-size:.82rem;margin-top:.6rem">同じテーマでもう一度</button>
+      <button class="btn-ghost" onclick="startFresh()" style="border-color:#DDD;color:#CCC;font-size:.78rem;margin-top:.5rem">新しいテーマで始める</button>
     </div>
   </div>
 </div>
@@ -686,18 +685,6 @@ function shareResult(){
 }
 
 // ── Restart ──
-
-function retryCorners(){
-  // Reset corners only, keep words and initial measurement
-  S.done=[false,false,false,false];
-  S.rounds=[{},{},{},{}];
-  S.breathing=false;S.bc=0;
-  S.curCorner=null;
-  hist=[];
-  updateCornerGrid();
-  go('s-corners');
-}
-
 
 function retryCorners(){
   // Keep ia/ifa from prev final for comparison
