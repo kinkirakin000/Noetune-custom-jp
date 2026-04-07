@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -6,119 +7,76 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="theme-color" content="#FAFAF7">
-<title>Noetune｜カスタム</title>
+<title>Noetune｜カスタム版</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;overflow:hidden}
 body{font-family:-apple-system,'Helvetica Neue','Hiragino Kaku Gothic ProN',sans-serif;background:#FAFAF7;color:#1A1A1A}
-.progress-bar{position:fixed;top:0;left:0;height:2px;background:#6B9080;transition:width .6s cubic-bezier(.4,0,.2,1);z-index:100}
-.screen{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem 1.5rem 2rem;opacity:0;transform:translateY(18px);transition:opacity .5s ease,transform .5s ease;pointer-events:none;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.progress-bar{position:fixed;top:0;left:0;height:2px;background:#6B9080;transition:width .45s cubic-bezier(.4,0,.2,1);z-index:100}
+.screen{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem 1.5rem 2rem;opacity:0;transform:translateY(18px);transition:opacity .45s ease,transform .45s ease;pointer-events:none;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .screen.active{opacity:1;transform:translateY(0);pointer-events:all}
 .screen.exit{opacity:0;transform:translateY(-12px)}
-.label{font-size:.72rem;letter-spacing:.18em;color:#A0A09A;margin-bottom:1.2rem}
-.title{font-family:'Noto Serif JP',serif;font-size:1.35rem;font-weight:300;text-align:center;line-height:2;margin-bottom:2rem;max-width:300px}
+.label{font-size:.72rem;letter-spacing:.18em;color:#A0A09A;margin-bottom:1.2rem;text-align:center}
+.title{font-family:'Noto Serif JP',serif;font-size:1.28rem;font-weight:300;text-align:center;line-height:1.95;margin-bottom:2rem;max-width:320px}
 .score-num{font-family:'Noto Serif JP',serif;font-size:2.8rem;font-weight:700;line-height:1;margin-bottom:1.8rem}
 .slider-wrap{width:100%;max-width:280px}
 input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:3px;background:#D4DDD8;border-radius:2px;outline:none}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:32px;height:32px;background:#6B9080;border-radius:50%;cursor:pointer;box-shadow:0 2px 8px rgba(107,144,128,.3)}
 input[type=range]::-moz-range-thumb{width:32px;height:32px;background:#6B9080;border-radius:50%;cursor:pointer;border:none}
 .slider-labels{display:flex;justify-content:space-between;margin-top:.6rem;font-size:.7rem;color:#BBB}
-.text-input{font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:300;text-align:center;border:none;border-bottom:1.5px solid #D4DDD8;background:transparent;padding:.6rem 1rem;width:92%;max-width:300px;outline:none;color:#1A1A1A;transition:border-color .3s}
+.text-input{font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:300;text-align:center;border:none;border-bottom:1.5px solid #D4DDD8;background:transparent;padding:.75rem 1rem;width:100%;outline:none;color:#1A1A1A;transition:border-color .3s}
 .text-input:focus{border-bottom-color:#6B9080}
 .text-input::placeholder{color:#CCC;font-weight:300}
-.btn{margin-top:2rem;padding:14px 52px;background:#6B9080;color:#fff;border:none;border-radius:30px;font-size:.95rem;cursor:pointer;transition:opacity .3s,transform .15s;font-family:'Noto Serif JP',serif;letter-spacing:.08em}
+.btn{margin-top:2rem;padding:14px 52px;background:#6B9080;color:#fff;border:none;border-radius:30px;font-size:.95rem;cursor:pointer;transition:opacity .25s,transform .15s;font-family:'Noto Serif JP',serif;letter-spacing:.08em}
 .btn:active{transform:scale(.97)}
 .btn:disabled{opacity:.3;cursor:default}
-.btn-ghost{margin-top:1rem;padding:11px 36px;background:transparent;color:#6B9080;border:1.5px solid #6B9080;border-radius:30px;font-size:.85rem;cursor:pointer;font-family:'Noto Serif JP',serif;letter-spacing:.08em;transition:all .25s}
+.btn-ghost{margin-top:1rem;padding:11px 34px;background:transparent;color:#6B9080;border:1.5px solid #6B9080;border-radius:30px;font-size:.82rem;cursor:pointer;font-family:'Noto Serif JP',serif;letter-spacing:.08em;transition:all .25s}
 .btn-ghost:active{background:#6B9080;color:#fff}
 .btn-start{padding:16px 64px;background:#1A1A1A;color:#FAFAF7;border:none;border-radius:30px;font-size:1rem;cursor:pointer;font-family:'Noto Serif JP',serif;letter-spacing:.2em;transition:opacity .3s}
 .btn-start:active{opacity:.7}
-/* Corner grid */
-.corner-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:100%;max-width:300px;margin-bottom:1.6rem}
-.corner-btn{position:relative;padding:1.4rem .8rem 1.2rem;background:#fff;border:1.5px solid #E4E4DE;border-radius:18px;cursor:pointer;transition:all .25s;text-align:center;font-family:'Noto Serif JP',serif;-webkit-tap-highlight-color:transparent;user-select:none}
-.corner-btn:active{transform:scale(.96)}
-.corner-btn.done{background:#F2F7F5;border-color:#A8C8BA}
-.corner-btn .c-num{font-size:1.1rem;font-weight:500;color:#6B9080;margin-bottom:.4rem}
-.corner-btn .c-label{font-size:.72rem;color:#AAA;letter-spacing:.05em;line-height:1.4}
-.corner-btn .c-check{position:absolute;top:.6rem;right:.7rem;font-size:.8rem;color:#6B9080;opacity:0;transition:opacity .2s}
-.corner-btn.done .c-check{opacity:1}
-.corner-btn.done .c-label{color:#8BB5A2}
-.corner-proceed{font-family:'Noto Serif JP',serif;font-size:.82rem;color:#B0B0A8;letter-spacing:.1em;cursor:pointer;background:none;border:none;padding:.5rem 1rem;margin-top:.4rem;transition:color .2s}
-.corner-proceed:active{color:#6B9080}
-/* Breathing */
-.breath-focus{font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:300;color:#888;text-align:center;line-height:1.9;margin-bottom:1.8rem;max-width:260px}
+.intro-title{font-family:'Noto Serif JP',serif;font-size:2.8rem;font-weight:700;letter-spacing:.15em;color:#1A1A1A;margin-bottom:.3rem}
+.today-badge{font-size:.72rem;color:#6B9080;letter-spacing:.06em;font-family:'Noto Serif JP',serif;margin-bottom:.25rem}
+.prev-badge{font-size:.72rem;color:#B0B0A8;letter-spacing:.05em;font-family:'Noto Serif JP',serif;margin-bottom:2rem}
+.prev-badge span{color:#6B9080}
+.btn-back{position:fixed;top:1rem;left:1rem;width:36px;height:36px;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;z-index:200}
+.btn-back.visible{opacity:1;pointer-events:all}
+.word-wrap{width:100%;max-width:272px;display:flex;flex-direction:column;gap:1.4rem}
+.word-cap{font-size:.68rem;color:#AAA;letter-spacing:.1em;margin-bottom:.5rem;font-family:'Noto Serif JP',serif}
+.section-badge{font-size:.8rem;color:#6B9080;letter-spacing:.14em;font-family:'Noto Serif JP',serif;margin-bottom:1rem}
+.breath-focus{font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:300;color:#888;text-align:center;line-height:1.9;margin-bottom:1.8rem;max-width:280px}
 .breath-focus em{color:#1A1A1A;font-style:normal;font-weight:500}
 .breath-circle{width:130px;height:130px;border-radius:50%;background:radial-gradient(circle at 40% 40%,#8BB5A2,#5A8A72);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.9);font-family:'Noto Serif JP',serif;font-size:1.5rem;font-weight:300;transition:transform 4s cubic-bezier(.4,0,.2,1),box-shadow 4s ease;box-shadow:0 4px 30px rgba(107,144,128,.15);cursor:pointer}
 .breath-circle.inhale{transform:scale(1.5);box-shadow:0 8px 50px rgba(107,144,128,.25)}
 .breath-circle.exhale{transform:scale(1)}
-/* Intro */
-.intro-title{font-family:'Noto Serif JP',serif;font-size:2.8rem;font-weight:700;letter-spacing:.15em;color:#1A1A1A;margin-bottom:.3rem}
-.intro-sub{font-size:.78rem;color:#AAA;letter-spacing:.2em;margin-bottom:.4rem}
-.prev-badge{font-size:.72rem;color:#B0B0A8;letter-spacing:.05em;font-family:'Noto Serif JP',serif;margin-bottom:2rem}
-.prev-badge span{color:#6B9080}
-.today-badge{font-size:.72rem;color:#6B9080;letter-spacing:.06em;font-family:'Noto Serif JP',serif;margin-bottom:.25rem}
-/* Result */
-.result-block{text-align:center;max-width:300px;width:100%}
-.score-pair{display:flex;justify-content:center;gap:2.4rem;margin-bottom:.8rem}
-.score-cell .slabel{font-size:.68rem;color:#AAA;letter-spacing:.1em;margin-bottom:.3rem}
-.score-cell .sval{font-family:'Noto Serif JP',serif;font-size:1.8rem;font-weight:700}
-.score-cell .sval.anshin{color:#6B9080}
-.score-cell .sval.fuan{color:#C47A5A}
-.score-section-label{font-size:.66rem;color:#CCC;letter-spacing:.18em;margin-bottom:.6rem}
-.score-divider{width:32px;height:1px;background:#E0E0DA;margin:1rem auto}
-/* PWA */
-.pwa-prompt{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #EEE;padding:1rem 1.5rem 1.3rem;display:none;flex-direction:column;align-items:center;gap:.7rem;z-index:300;animation:slideUp .35s ease}
-.pwa-prompt.show{display:flex}
-.pwa-text{font-size:.78rem;color:#888;text-align:center;letter-spacing:.04em}
-.pwa-btns{display:flex;gap:.7rem}
-.pwa-add{padding:10px 28px;background:#1A1A1A;color:#fff;border:none;border-radius:20px;font-size:.8rem;cursor:pointer;font-family:'Noto Serif JP',serif;letter-spacing:.1em}
-.pwa-later{padding:10px 20px;background:transparent;color:#AAA;border:1px solid #DDD;border-radius:20px;font-size:.8rem;cursor:pointer;font-family:'Noto Serif JP',serif}
-.btn-back{position:fixed;top:1rem;left:1rem;width:36px;height:36px;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;z-index:200}
-.btn-back.visible{opacity:1;pointer-events:all}
-@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
 .pulse{animation:pulse 2s infinite}
-@media(max-height:640px){.title{font-size:1.2rem;margin-bottom:1.5rem}.score-num{font-size:2.2rem}.breath-circle{width:110px;height:110px}.screen{padding:2rem 1.2rem 1.5rem}.corner-btn{padding:1rem .6rem .9rem}}
-
-.label .ph{color:#1A1A1A;font-weight:500}
-.label .sep{color:#D8D8D2;margin:0 .3em}
-.ar-val.anshin{color:#6B9080}
-.ar-val.fuan{color:#C47A5A}
-
-
-.r-row{display:flex;align-items:center;justify-content:center;gap:.55rem;margin-bottom:1.8rem}
-.r-label{font-family:'Noto Serif JP',serif;font-size:1.05rem;font-weight:500;letter-spacing:.05em;min-width:2.6rem;text-align:right}
+.result-block{text-align:center;max-width:320px;width:100%}
+.r-row{display:flex;align-items:center;justify-content:center;gap:.55rem;margin-bottom:1.6rem}
+.r-label{font-family:'Noto Serif JP',serif;font-size:1.05rem;font-weight:500;letter-spacing:.05em;min-width:3rem;text-align:right}
 .r-arrow{display:flex;align-items:center;flex-shrink:0}
 .r-nums{display:flex;align-items:baseline;gap:.1rem;font-family:'Noto Serif JP',serif;font-size:2.2rem;font-weight:700}
 .r-before{opacity:.38;font-size:1.4rem}
 .r-sep{font-size:1.1rem;color:#CCC;margin:0 .25rem;font-weight:300;font-family:sans-serif}
-.r-after{}
-
-.qr-overlay{position:fixed;inset:0;background:rgba(250,250,247,.96);display:none;flex-direction:column;align-items:center;justify-content:center;z-index:500;animation:fadeInUp .3s ease}
-.qr-overlay.show{display:flex}
-.qr-close{position:absolute;top:1.2rem;right:1.4rem;background:none;border:none;font-size:1.4rem;color:#BBB;cursor:pointer;line-height:1}
-.qr-tagline{font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:300;color:#888;letter-spacing:.1em;margin-bottom:1.6rem}
-.qr-box{padding:16px;background:#fff;border-radius:12px;box-shadow:0 2px 20px rgba(0,0,0,.06)}
-.qr-url{font-size:.65rem;color:#C0C0B8;margin-top:1rem;letter-spacing:.08em}
-
-.theme-list{display:flex;flex-direction:column;gap:14px;width:100%;max-width:272px}
-.theme-btn{padding:1.1rem 1.4rem;border-radius:16px;border:none;text-align:left;transition:all .2s;width:100%}
-.theme-btn.t-active{background:#1A1A1A;color:#FAFAF7;cursor:pointer}
-.theme-btn.t-active:active{opacity:.85}
-.theme-btn.t-locked{background:#F5F5F2;color:#C0C0BA;cursor:default}
-.th-main{font-family:'Noto Serif JP',serif;font-size:1rem;font-weight:500;letter-spacing:.06em;display:block}
-.th-sub{font-family:'Noto Serif JP',serif;font-size:.62rem;letter-spacing:.1em;display:block;margin-top:.35rem}
-.theme-btn.t-active .th-sub{color:rgba(255,255,255,.45)}
-.theme-btn.t-locked .th-sub{color:#C8C8C2}
+.theme-note{font-size:.72rem;color:#B8B8B0;letter-spacing:.06em;line-height:1.8;text-align:center;margin-top:.9rem}
+.small-skip{background:none;border:none;font-family:'Noto Serif JP',serif;font-size:.75rem;color:#C0C0B8;letter-spacing:.1em;cursor:pointer;margin-top:.8rem;padding:.3rem .8rem}
+@media(max-height:640px){
+  .title{font-size:1.15rem;margin-bottom:1.4rem}
+  .score-num{font-size:2.3rem}
+  .breath-circle{width:112px;height:112px}
+  .screen{padding:2rem 1.2rem 1.5rem}
+}
 </style>
 </head>
 <body>
 
 <button class="btn-back" id="btn-back" onclick="goBack()">
-  <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M14 5L8 11L14 17" stroke="#999" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+    <path d="M14 5L8 11L14 17" stroke="#999" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
 </button>
+
 <div class="progress-bar" id="progress"></div>
 
 <!-- Intro -->
@@ -133,141 +91,147 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;background:#6B9080;bo
   <div class="prev-badge" id="prev-badge" style="display:none;margin-top:.3rem">前回：<span id="prev-text"></span></div>
   <div style="height:1.8rem" id="intro-spacer"></div>
   <button class="btn-start" onclick="startFresh()">3分ワークを始める</button>
-  <button class="btn-resume" id="resume-btn" style="display:none" onclick="resumeSession()">続きから始める</button>
+  <button class="btn-ghost" id="resume-btn" style="display:none" onclick="resumeSession()">続きから始める</button>
 </div>
 
-<!-- Theme Select -->
-<div class="screen" id="s-theme-select">
-  <div class="label">カスタム入力</div>
-  <div class="theme-list" id="theme-list"></div>
-</div>
-
-<!-- Word Input -->
+<!-- Words -->
 <div class="screen" id="s-words">
   <div class="label">2つの言葉を入れる</div>
-  <div style="width:100%;max-width:272px;display:flex;flex-direction:column;gap:1.4rem">
+  <div class="word-wrap">
     <div>
-      <div style="font-size:.68rem;color:#AAA;letter-spacing:.1em;margin-bottom:.5rem;font-family:'Noto Serif JP',serif">ポジティブな言葉</div>
-      <input class="text-input" id="word-pos" placeholder="例：安心" autocomplete="off" style="width:100%">
+      <div class="word-cap">ポジワード</div>
+      <input class="text-input" id="word-pos" placeholder="例：安心" autocomplete="off">
     </div>
     <div>
-      <div style="font-size:.68rem;color:#AAA;letter-spacing:.1em;margin-bottom:.5rem;font-family:'Noto Serif JP',serif">ネガティブな言葉</div>
-      <input class="text-input" id="word-neg" placeholder="例：不安" autocomplete="off" style="width:100%">
+      <div class="word-cap">ネガワード</div>
+      <input class="text-input" id="word-neg" placeholder="例：不安" autocomplete="off">
     </div>
   </div>
-  <button class="btn" id="btn-words" onclick="saveWords()" style="font-size:.88rem;padding:12px 44px;margin-top:2rem">次へ</button>
+  <button class="btn" onclick="saveWords()" style="font-size:.88rem;padding:12px 44px;margin-top:2rem">次へ</button>
 </div>
 
-<!-- Init 安心 -->
-<div class="screen" id="s-ia">
-  <div class="label" id="lbl-ia"></div>
-  <div class="title"><span id="t-ia-title"></span>の強度・実現度は？</div>
-  <div class="score-num" id="num-ia" style="color:#6B9080">0.000</div>
+<!-- Pre Positive -->
+<div class="screen" id="s-pre-pos">
+  <div class="label">事前測定</div>
+  <div class="title">「<span id="pre-pos-word"></span>」の<br>現実化確定度は？</div>
+  <div class="score-num" id="num-pre-pos" style="color:#6B9080">0.0</div>
   <div class="slider-wrap">
-    <input type="range" min="0" max="100" step="0.001" value="0" id="sl-ia" oninput="document.getElementById('num-ia').textContent=parseFloat(this.value).toFixed(3)">
+    <input type="range" min="0" max="100" step="0.1" value="0" id="sl-pre-pos" oninput="document.getElementById('num-pre-pos').textContent=parseFloat(this.value).toFixed(1)">
     <div class="slider-labels"><span>0</span><span>100</span></div>
   </div>
-  <button class="btn" onclick="onInitAnshin()">確定</button>
+  <button class="btn" onclick="onPrePos()">確定</button>
 </div>
 
-<!-- Init 不安 -->
-<div class="screen" id="s-if">
-  <div class="label" id="lbl-if"></div>
-  <div class="title"><span id="t-if-title"></span>の強度・実現度は？</div>
-  <div class="score-num" id="num-if" style="color:#C47A5A">0.000</div>
+<!-- Pre Negative -->
+<div class="screen" id="s-pre-neg">
+  <div class="label">事前測定</div>
+  <div class="title">「<span id="pre-neg-word"></span>」の<br>現実化確定度は？</div>
+  <div class="score-num" id="num-pre-neg" style="color:#C47A5A">0.0</div>
   <div class="slider-wrap">
-    <input type="range" min="0" max="100" step="0.001" value="0" id="sl-if" oninput="document.getElementById('num-if').textContent=parseFloat(this.value).toFixed(3)">
+    <input type="range" min="0" max="100" step="0.1" value="0" id="sl-pre-neg" oninput="document.getElementById('num-pre-neg').textContent=parseFloat(this.value).toFixed(1)">
     <div class="slider-labels"><span>0</span><span>100</span></div>
   </div>
-  <button class="btn" onclick="onInitFuan()">確定</button>
+  <button class="btn" onclick="onPreNeg()">次へ</button>
 </div>
 
-<!-- Corner Selection -->
-<div class="screen" id="s-corners">
-  <div class="label" id="lbl-corners-hdr"></div>
-  <div class="corner-grid" id="corner-grid">
-    <div class="corner-btn" id="cb-0" onclick="startCorner(0)">
-      <div class="c-check">✓</div>
-      <div class="c-num">①</div>
-      <div class="c-label" id="cl-0"></div>
-    </div>
-    <div class="corner-btn" id="cb-1" onclick="startCorner(1)">
-      <div class="c-check">✓</div>
-      <div class="c-num">②</div>
-      <div class="c-label" id="cl-1"></div>
-    </div>
-    <div class="corner-btn" id="cb-2" onclick="startCorner(2)">
-      <div class="c-check">✓</div>
-      <div class="c-num">③</div>
-      <div class="c-label" id="cl-2"></div>
-    </div>
-    <div class="corner-btn" id="cb-3" onclick="startCorner(3)">
-      <div class="c-check">✓</div>
-      <div class="c-num">④</div>
-      <div class="c-label" id="cl-3"></div>
-    </div>
-  </div>
-  <button class="corner-proceed" onclick="goToFinal()">測定へ →</button>
+<!-- Corner1 A -->
+<div class="screen" id="s-c1a">
+  <div class="label">コーナー①</div>
+  <div class="title">「<span id="c1-neg-word"></span>」が現実化している世界。<br>そこであなたはどんな状態？</div>
+  <input class="text-input" id="input-c1a" placeholder="自由に入力" autocomplete="off">
+  <button class="btn" id="btn-c1a" disabled onclick="onC1A()" style="opacity:.45;font-size:.82rem;padding:11px 36px">次へ</button>
+  <button class="small-skip" onclick="skipStep('c1a')">スキップ</button>
 </div>
 
-<!-- Round A -->
-<div class="screen" id="s-ra">
-  <div class="label" id="lbl-ra"></div>
-  <div class="title" id="title-ra"></div>
-  <input class="text-input" id="input-ra" placeholder="" autocomplete="off">
-  <button class="btn" id="btn-ra" disabled onclick="onRoundA()" style="opacity:.45;font-size:.82rem;padding:11px 36px">次へ</button>
-  <button onclick="skipRound('a')" style="background:none;border:none;font-family:'Noto Serif JP',serif;font-size:.75rem;color:#C0C0B8;letter-spacing:.1em;cursor:pointer;margin-top:.8rem;padding:.3rem .8rem">スキップ</button>
+<!-- Corner1 B -->
+<div class="screen" id="s-c1b">
+  <div class="label">コーナー①</div>
+  <div class="title">「A」に含まれる<br>ネガティブな感覚は？</div>
+  <input class="text-input" id="input-c1b" placeholder="例：重い、苦しい、張りつめる" autocomplete="off">
+  <button class="btn" id="btn-c1b" disabled onclick="onC1B()" style="opacity:.45;font-size:.82rem;padding:11px 36px">次へ</button>
+  <button class="small-skip" onclick="skipStep('c1b')">スキップ</button>
 </div>
 
-<!-- Round B -->
-<div class="screen" id="s-rb">
-  <div class="label" id="lbl-rb"></div>
-  <div class="title" id="title-rb"></div>
-  <input class="text-input" id="input-rb" placeholder="" autocomplete="off">
-  <button class="btn" id="btn-rb" disabled onclick="onRoundB()" style="opacity:.45;font-size:.82rem;padding:11px 36px">次へ</button>
-  <button onclick="skipRound('b')" style="background:none;border:none;font-family:'Noto Serif JP',serif;font-size:.75rem;color:#C0C0B8;letter-spacing:.1em;cursor:pointer;margin-top:.8rem;padding:.3rem .8rem">スキップ</button>
-</div>
-
-<!-- Round C1 -->
-<div class="screen" id="s-rc1">
-  <div class="label" id="lbl-rc1"></div>
-  <div class="breath-focus" id="focus-c1"></div>
+<!-- Corner1 Breath B -->
+<div class="screen" id="s-c1breath1">
+  <div class="label">コーナー①</div>
+  <div class="breath-focus" id="focus-c1breathe1"></div>
   <div style="position:relative;display:inline-block">
-    <div class="breath-circle pulse" id="circle-c1" onclick="startBreath('c1')"></div>
-    <div id="hint-c1" style="position:absolute;bottom:-1.6rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">触れる</div>
+    <div class="breath-circle pulse" id="circle-c1breathe1" onclick="startBreath('c1breathe1')"></div>
+    <div id="hint-c1breathe1" style="position:absolute;bottom:-1.6rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">触れる</div>
   </div>
 </div>
 
-<!-- Round C2 -->
-<div class="screen" id="s-rc2">
-  <div class="label" id="lbl-rc2"></div>
-  <div class="breath-focus">この宇宙全てを感じながら<br>深呼吸1回</div>
+<!-- Corner1 Breath all -->
+<div class="screen" id="s-c1breath2">
+  <div class="label">コーナー①</div>
+  <div class="breath-focus">この瞬間のすべてを感じながら<br>深呼吸1回</div>
+  <div class="theme-note">4秒吸って、4秒吐く</div>
+  <div style="position:relative;display:inline-block;margin-top:1.1rem">
+    <div class="breath-circle pulse" id="circle-c1breathe2" onclick="startBreath('c1breathe2')"></div>
+    <div id="hint-c1breathe2" style="position:absolute;bottom:-1.6rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">触れる</div>
+  </div>
+</div>
+
+<!-- Corner4 A -->
+<div class="screen" id="s-c4a">
+  <div class="label">コーナー④</div>
+  <div class="title">「<span id="c4-pos-word"></span>」が現実化している世界。<br>そこであなたはどんな状態？</div>
+  <input class="text-input" id="input-c4a" placeholder="自由に入力" autocomplete="off">
+  <button class="btn" id="btn-c4a" disabled onclick="onC4A()" style="opacity:.45;font-size:.82rem;padding:11px 36px">次へ</button>
+  <button class="small-skip" onclick="skipStep('c4a')">スキップ</button>
+</div>
+
+<!-- Corner4 B -->
+<div class="screen" id="s-c4b">
+  <div class="label">コーナー④</div>
+  <div class="title">「A」に含まれる<br>ポジティブな感覚は？</div>
+  <input class="text-input" id="input-c4b" placeholder="例：軽い、広がる、あたたかい" autocomplete="off">
+  <button class="btn" id="btn-c4b" disabled onclick="onC4B()" style="opacity:.45;font-size:.82rem;padding:11px 36px">次へ</button>
+  <button class="small-skip" onclick="skipStep('c4b')">スキップ</button>
+</div>
+
+<!-- Corner4 Breath B -->
+<div class="screen" id="s-c4breath1">
+  <div class="label">コーナー④</div>
+  <div class="breath-focus" id="focus-c4breathe1"></div>
   <div style="position:relative;display:inline-block">
-    <div class="breath-circle pulse" id="circle-c2" onclick="startBreath('c2')"></div>
-    <div id="hint-c2" style="position:absolute;bottom:-1.6rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">触れる</div>
+    <div class="breath-circle pulse" id="circle-c4breathe1" onclick="startBreath('c4breathe1')"></div>
+    <div id="hint-c4breathe1" style="position:absolute;bottom:-1.6rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">触れる</div>
   </div>
 </div>
 
-<!-- Final 安心 -->
-<div class="screen" id="s-fa">
-  <div class="label" id="lbl-fa"></div>
-  <div class="title"><span id="t-fa-title"></span>の強度・実現度は？</div>
-  <div class="score-num" id="num-fa" style="color:#6B9080">0.000</div>
+<!-- Corner4 Breath all -->
+<div class="screen" id="s-c4breath2">
+  <div class="label">コーナー④</div>
+  <div class="breath-focus">この瞬間のすべてを感じながら<br>深呼吸1回</div>
+  <div class="theme-note">4秒吸って、4秒吐く</div>
+  <div style="position:relative;display:inline-block;margin-top:1.1rem">
+    <div class="breath-circle pulse" id="circle-c4breathe2" onclick="startBreath('c4breathe2')"></div>
+    <div id="hint-c4breathe2" style="position:absolute;bottom:-1.6rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">触れる</div>
+  </div>
+</div>
+
+<!-- Post Positive -->
+<div class="screen" id="s-post-pos">
+  <div class="label">事後測定</div>
+  <div class="title">「<span id="post-pos-word"></span>」の<br>現実化確定度は？</div>
+  <div class="score-num" id="num-post-pos" style="color:#6B9080">0.0</div>
   <div class="slider-wrap">
-    <input type="range" min="0" max="100" step="0.001" value="0" id="sl-fa" oninput="document.getElementById('num-fa').textContent=parseFloat(this.value).toFixed(3)">
+    <input type="range" min="0" max="100" step="0.1" value="0" id="sl-post-pos" oninput="document.getElementById('num-post-pos').textContent=parseFloat(this.value).toFixed(1)">
     <div class="slider-labels"><span>0</span><span>100</span></div>
   </div>
-  <button class="btn" onclick="onFinalAnshin()">確定</button>
-  <button class="btn-ghost" onclick="setMuryou()" style="margin-top:.8rem;font-size:.8rem">無量（測れない）</button>
+  <button class="btn" onclick="onPostPos()">確定</button>
+  <button class="btn-ghost" onclick="setMuryou()">無量（測れない）</button>
 </div>
 
-<!-- Final 不安 -->
-<div class="screen" id="s-ff">
-  <div class="label" id="lbl-ff"></div>
-  <div class="title"><span id="t-ff-title"></span>の強度・実現度は？</div>
-  <div class="score-num" id="num-ff" style="color:#C47A5A">0.000</div>
+<!-- Post Negative -->
+<div class="screen" id="s-post-neg">
+  <div class="label">事後測定</div>
+  <div class="title">「<span id="post-neg-word"></span>」の<br>現実化確定度は？</div>
+  <div class="score-num" id="num-post-neg" style="color:#C47A5A">0.0</div>
   <div class="slider-wrap">
-    <input type="range" min="0" max="100" step="0.001" value="0" id="sl-ff" oninput="document.getElementById('num-ff').textContent=parseFloat(this.value).toFixed(3)">
+    <input type="range" min="0" max="100" step="0.1" value="0" id="sl-post-neg" oninput="document.getElementById('num-post-neg').textContent=parseFloat(this.value).toFixed(1)">
     <div class="slider-labels"><span>0</span><span>100</span></div>
   </div>
   <button class="btn" onclick="showResult()">結果を見る</button>
@@ -277,486 +241,647 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;background:#6B9080;bo
 <div class="screen" id="s-result">
   <div class="result-block">
     <div class="label">完了</div>
-                    <div id="r-normal" style="display:none">
+
+    <div id="r-normal" style="display:none">
       <div class="r-row">
-        <span class="r-label" id="lbl-a" style="color:#6B9080"></span>
-        <span class="r-arrow" id="arr-a"></span>
+        <span class="r-label" id="lbl-pos" style="color:#6B9080"></span>
+        <span class="r-arrow" id="arr-pos"></span>
         <span class="r-nums">
-          <span class="r-before" id="r-ia"></span>
+          <span class="r-before" id="r-pre-pos"></span>
           <span class="r-sep">→</span>
-          <span class="r-after" id="r-fa"></span>
+          <span class="r-after" id="r-post-pos"></span>
         </span>
       </div>
       <div class="r-row">
-        <span class="r-label" id="lbl-f" style="color:#C47A5A"></span>
-        <span class="r-arrow" id="arr-f"></span>
+        <span class="r-label" id="lbl-neg" style="color:#C47A5A"></span>
+        <span class="r-arrow" id="arr-neg"></span>
         <span class="r-nums">
-          <span class="r-before" id="r-if"></span>
+          <span class="r-before" id="r-pre-neg"></span>
           <span class="r-sep">→</span>
-          <span class="r-after" id="r-ff"></span>
+          <span class="r-after" id="r-post-neg"></span>
         </span>
       </div>
     </div>
+
     <div id="r-muryou" style="display:none;text-align:center">
       <div style="font-family:'Noto Serif JP',serif;font-size:2rem;font-weight:700;color:#6B9080;letter-spacing:.15em">無量</div>
       <div style="font-family:'Noto Serif JP',serif;font-size:.95rem;color:#6B9080;margin-top:.7rem;letter-spacing:.12em;font-weight:300">差が消融した</div>
       <div style="font-size:.75rem;color:#B8B8B0;margin-top:.8rem;letter-spacing:.08em;font-family:'Noto Serif JP',serif">必要なときだけ、どうぞ</div>
     </div>
+
     <div style="margin-top:1.8rem;display:flex;flex-direction:column;align-items:center;gap:.5rem">
-      <button onclick="shareResult()" style="display:inline-flex;align-items:center;gap:.38rem;background:none;border:none;color:#A8A8A0;cursor:pointer;padding:.4rem .8rem;font-family:'Noto Serif JP',serif;font-size:.78rem;letter-spacing:.1em"><svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="7.5,1 7.5,9.5"/><polyline points="4,4 7.5,1 11,4"/><path d="M2.5,7.5v5.5h10V7.5"/></svg>Share</button>
-      <button class="btn-ghost" onclick="retryCorners()" style="border-color:#6B9080;color:#6B9080;font-size:.82rem;margin-top:.6rem">同じテーマでもう一度</button>
+      <button class="btn-ghost" onclick="restartSameTheme()" style="border-color:#6B9080;color:#6B9080;font-size:.82rem;margin-top:.6rem">同じテーマでもう一度</button>
       <button class="btn-ghost" onclick="startFresh()" style="border-color:#DDD;color:#CCC;font-size:.78rem;margin-top:.5rem">新しいテーマで始める</button>
     </div>
   </div>
 </div>
 
-<div class="pwa-prompt" id="pwa-prompt">
-  <div class="pwa-text">ホームに追加すると、すぐに開けます</div>
-  <div class="pwa-btns">
-    <button class="pwa-add" onclick="pwaAdd()">追加する</button>
-    <button class="pwa-later" onclick="pwaLater()">後で</button>
-  </div>
-</div>
-
 <script>
-function bcPro(phase){
-  // phase: 0=before-measure, 1=corner-select, 2=in-corner, 3=after-measure
-  if(phase===2) return ''; // handled by caller with corner number
-  const sep='<span class="sep">›</span>';
-  const parts=['測定','コーナー処理','測定'];
-  const active=[0,1,3][phase<3?phase:2];
-  return parts.map((t,i)=>i===active?'<span class="ph">'+t+'</span>':t).join(sep);
-}
-function setLbl(id,html){const el=document.getElementById(id);if(el)el.innerHTML=html;}
-
-// ── Round definitions (all 4) ──
-const RD = [
-  { a:'「不安」がすでに実現しているとき、<br>あなたはどんな状態？',  b:(a)=>'「'+a+'」がすでに存在しないとき、<br>あなたはどんな状態？' },
-  { a:'「安心」がすでに存在しないとき、<br>あなたはどんな状態？',  b:(a)=>'「'+a+'」がすでに存在しないとき、<br>あなたはどんな状態？' },
-  { a:'「不安」がすでに存在しないとき、<br>あなたはどんな状態？',  b:(a)=>'「'+a+'」がすでに実現しているとき、<br>あなたはどんな状態？' },
-  { a:'「安心」がすでに実現しているとき、<br>あなたはどんな状態？',  b:(a)=>'「'+a+'」がすでに実現しているとき、<br>あなたはどんな状態？' }
-];
-
 const S = {
-  prevFa:null,prevFf:null,
-  ia:0, ifa:0, fa:0, ff:0, muryou:false,
-  curCorner: null,       // which corner is active
-  done: [false,false,false,false], // cleared corners
-  rounds: [{},{},{},{}], // {a,b} per corner
-  breathing: false, bc: 0
+  prePos: 0,
+  preNeg: 0,
+  postPos: 0,
+  postNeg: 0,
+  muryou: false,
+  prevPostPos: null,
+  prevPostNeg: null,
+  c1a: '',
+  c1b: '',
+  c4a: '',
+  c4b: '',
+  breathing: false,
+  bc: 0
 };
 
-let cur='s-intro', hist=[];
+const W = {
+  pos: '安心',
+  neg: '不安'
+};
 
-// ── Persist ──
-function ls(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k));localStorage.setItem(k,JSON.stringify(v));}catch(e){return null;}}
+let cur = 's-intro';
+let hist = [];
 
-// ── Nav ──
-function go(id){
-  const c=document.getElementById(cur),n=document.getElementById(id);
-  if(!c||!n)return;
-  c.classList.remove('active');c.classList.add('exit');
-  setTimeout(()=>c.classList.remove('exit'),500);
-  setTimeout(()=>{
-    n.classList.add('active');cur=id;
-    backBtn();saveDraft();
-    const inp=n.querySelector('.text-input');if(inp)setTimeout(()=>inp.focus(),400);
-  },120);
+const STEP_ORDER = [
+  's-words',
+  's-pre-pos',
+  's-pre-neg',
+  's-c1a',
+  's-c1b',
+  's-c1breath1',
+  's-c1breath2',
+  's-c4a',
+  's-c4b',
+  's-c4breath1',
+  's-c4breath2',
+  's-post-pos',
+  's-post-neg',
+  's-result'
+];
+
+function ls(k, v){
+  try{
+    if(v === undefined) return JSON.parse(localStorage.getItem(k));
+    localStorage.setItem(k, JSON.stringify(v));
+  }catch(e){
+    return null;
+  }
 }
-function fwd(id){hist.push(cur);go(id);}
+
+function updateProgress(id){
+  const el = document.getElementById('progress');
+  if(!el) return;
+  if(id === 's-intro'){ el.style.width = '0%'; return; }
+  const idx = STEP_ORDER.indexOf(id);
+  const pct = idx < 0 ? 0 : ((idx + 1) / STEP_ORDER.length) * 100;
+  el.style.width = pct + '%';
+}
+
+function go(id){
+  const c = document.getElementById(cur);
+  const n = document.getElementById(id);
+  if(!c || !n) return;
+
+  c.classList.remove('active');
+  c.classList.add('exit');
+  setTimeout(()=>c.classList.remove('exit'), 450);
+
+  setTimeout(()=>{
+    n.classList.add('active');
+    cur = id;
+    backBtn();
+    updateProgress(id);
+    saveDraft();
+    const inp = n.querySelector('.text-input');
+    if(inp) setTimeout(()=>inp.focus(), 280);
+  }, 100);
+}
+
+function fwd(id){
+  hist.push(cur);
+  go(id);
+}
 
 function goBack(){
-  const p=hist.pop();
-  if(!p||p==='s-intro'){restart();return;}
-  // If going back from a round screen to corners, reset breathing state
-  if(p==='s-corners'){S.breathing=false;S.bc=0;}
-  const c=document.getElementById(cur),n=document.getElementById(p);
-  c.classList.remove('active');c.classList.add('exit');
-  setTimeout(()=>c.classList.remove('exit'),500);
-  setTimeout(()=>{n.classList.add('active');cur=p;backBtn();},120);
+  const p = hist.pop();
+  if(!p || p === 's-intro'){
+    restartToIntro();
+    return;
+  }
+  S.breathing = false;
+  S.bc = 0;
+  const c = document.getElementById(cur);
+  const n = document.getElementById(p);
+  c.classList.remove('active');
+  c.classList.add('exit');
+  setTimeout(()=>c.classList.remove('exit'), 450);
+  setTimeout(()=>{
+    n.classList.add('active');
+    cur = p;
+    backBtn();
+    updateProgress(p);
+    saveDraft();
+  }, 100);
 }
 
 function backBtn(){
-  document.getElementById('btn-back').classList.toggle('visible',
-    cur!=='s-intro'&&cur!=='s-result'&&cur!=='s-corners');
+  document.getElementById('btn-back').classList.toggle('visible', cur !== 's-intro' && cur !== 's-result');
 }
-
-// ── Intro ──
-
-const THEMES = [
-  { a:'＊', b:'＊',           active:true  },
-  { a:'自信', b:'自己不信',    active:false },
-  { a:'自己肯定', b:'自己否定', active:false },
-  { a:'快',   b:'不快',        active:false },
-  { a:'充足', b:'不足',        active:false }
-];
-
-function buildThemeList(){
-  const list=document.getElementById('theme-list');
-  list.innerHTML='';
-  THEMES.forEach(t=>{
-    const btn=document.createElement('button');
-    btn.className='theme-btn '+(t.active?'t-active':'t-locked');
-    btn.innerHTML='<span class="th-main">'+t.a+' — '+t.b+'</span><span class="th-sub">チューニング</span>';
-    if(t.active) btn.onclick=()=>fwd('s-ia');
-    list.appendChild(btn);
-  });
-}
-
-
-// ── Custom words
-const W = { pos: '安心', neg: '不安' };
-
-function getRD(){return [
-  { a:`「${W.neg}」が実現しているとしたら、<br>あなたはどんな状態？`,      b:(a)=>`「${a}」が全くない世界にいるとき、<br>あなたはどんな状態？` },
-  { a:`「${W.pos}」が実現していないとしたら、<br>あなたはどんな状態？`,    b:(a)=>`「${a}」が全くない世界にいるとき、<br>あなたはどんな状態？` },
-  { a:`「${W.neg}」が実現していないとしたら、<br>あなたはどんな状態？`,    b:(a)=>`「${a}」が完全に実現しているとき、<br>あなたはどんな状態？` },
-  { a:`「${W.pos}」が実現しているとしたら、<br>あなたはどんな状態？`,      b:(a)=>`「${a}」が完全に実現しているとき、<br>あなたはどんな状態？` }
-];}
 
 function applyWords(){
-  const p=W.pos, n=W.neg;
-  // Titles
-  ['t-ia-title','t-fa-title'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=p;});
-  ['t-if-title','t-ff-title'].forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=n;});
-  // Result labels
-  const la=document.getElementById('lbl-a'),lf=document.getElementById('lbl-f');
-  if(la)la.textContent=p; if(lf)lf.textContent=n;
-  // Corner labels
-  const cl=[
-    n+'の中<br>↓ 外',
-    p+'の外<br>↓ 外',
-    n+'の外<br>↓ 中',
-    p+'の中<br>↓ 中'
-  ];
-  cl.forEach((t,i)=>{const el=document.getElementById('cl-'+i);if(el)el.innerHTML=t;});
+  document.getElementById('pre-pos-word').textContent = W.pos;
+  document.getElementById('pre-neg-word').textContent = W.neg;
+  document.getElementById('post-pos-word').textContent = W.pos;
+  document.getElementById('post-neg-word').textContent = W.neg;
+  document.getElementById('c1-neg-word').textContent = W.neg;
+  document.getElementById('c4-pos-word').textContent = W.pos;
+  document.getElementById('lbl-pos').textContent = W.pos;
+  document.getElementById('lbl-neg').textContent = W.neg;
 }
 
-function saveWords(){
-  const p=document.getElementById('word-pos').value.trim();
-  const n=document.getElementById('word-neg').value.trim();
-  if(!p||!n){
-    const emp=!p?'word-pos':'word-neg';
-    const el=document.getElementById(emp);
-    if(el){el.style.borderBottomColor='#C47A5A';el.focus();}
-    return;
-  }
-  W.pos=p; W.neg=n;
-  applyWords();
-  setLbl('lbl-ia',bcPro(0));setLbl('lbl-if',bcPro(0));
-  setLbl('lbl-fa',bcPro(3));setLbl('lbl-ff',bcPro(3));
-  buildThemeList();
-  fwd('s-ia');
-}
-
-
-function saveDraft(){
-  if(cur==='s-intro'||cur==='s-result'){localStorage.removeItem('ntp_draft');return;}
-  ls('ntp_draft',{cur,ri:S.ri,done:S.done,rounds:S.rounds,ia:S.ia,ifa:S.ifa,hist,wp:W.pos,wn:W.neg});
-}
-
-function resumeSession(){
-  const d=ls('ntp_draft');if(!d)return;
-  S.ri=d.ri||0;
-  S.done=d.done||[false,false,false,false];
-  S.rounds=d.rounds||[{},{},{},{}];
-  S.ia=d.ia||0;S.ifa=d.ifa||0;
-  hist=d.hist||[];
-  // Restore custom words
-  if(d.wp){W.pos=d.wp;W.neg=d.wn||W.neg;
-    document.querySelectorAll('.w-pos').forEach(el=>el.textContent=W.pos);
-    document.querySelectorAll('.w-neg').forEach(el=>el.textContent=W.neg);
-    const pi=document.getElementById('word-pos');const ni=document.getElementById('word-neg');
-    if(pi)pi.value=W.pos;if(ni)ni.value=W.neg;
-
-  }
-  document.getElementById('sl-ia').value=S.ia;
-  document.getElementById('num-ia').textContent=parseFloat(S.ia).toFixed(3);
-  document.getElementById('sl-if').value=S.ifa;
-  document.getElementById('num-if').textContent=parseFloat(S.ifa).toFixed(3);
-  updateCornerGrid();
-  const n=document.getElementById(d.cur);
-  const c=document.getElementById(cur);
-  if(c)c.classList.remove('active');
-  if(n){n.classList.add('active');cur=d.cur;backBtn();}
-}
-
-function loadIntro(){
-  const _d=ls('ntp_draft');
-  if(_d&&_d.cur&&_d.cur!=='s-intro'){const rb=document.getElementById('resume-btn');if(rb)rb.style.display='block';}
-  const last=ls('ntp_last');
-  if(last){
-    const p=last.wp||'',n=last.wn||'';
-    let txt;
-    if(last.muryou){ txt='無量'; }
-    else{ txt=(p?p+' ':''+(last.fa??'?'))+'　'+(n?n+' ':''+(last.ff??'?')); }
-    document.getElementById('prev-text').textContent=last.muryou?'無量':(p||'')+(last.fa??'?')+'　'+(n||'')+(last.ff??'?');
-    document.getElementById('prev-badge').style.display='block';
-    document.getElementById('intro-spacer').style.display='none';
-  }
-  const today=new Date().toISOString().slice(0,10);
-  if(ls('ntp_today')===today)document.getElementById('today-badge').style.display='block';
+function resetInputs(){
+  ['input-c1a','input-c1b','input-c4a','input-c4b','word-pos','word-neg'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.value = '';
+  });
+  ['sl-pre-pos','sl-pre-neg','sl-post-pos','sl-post-neg'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.value = 0;
+  });
+  document.getElementById('num-pre-pos').textContent = '0.0';
+  document.getElementById('num-pre-neg').textContent = '0.0';
+  document.getElementById('num-post-pos').textContent = '0.0';
+  document.getElementById('num-post-neg').textContent = '0.0';
 }
 
 function startFresh(){
-  S.ia=0;S.ifa=0;S.fa=0;S.ff=0;S.muryou=false;
-  S.curCorner=null;S.done=[false,false,false,false];S.rounds=[{},{},{},{}];
-  S.breathing=false;S.bc=0;
-  hist=[];
-  setLbl('lbl-ia',bcPro(0));setLbl('lbl-if',bcPro(0));
-  ['sl-ia','sl-if','sl-fa','sl-ff'].forEach(id=>document.getElementById(id).value=0);
-  ['num-ia','num-if','num-fa','num-ff'].forEach(id=>document.getElementById(id).textContent='0.000');
-  W.pos='安心';W.neg='不安';document.getElementById('word-pos').value='';document.getElementById('word-neg').value='';fwd('s-words');
+  S.prePos = 0;
+  S.preNeg = 0;
+  S.postPos = 0;
+  S.postNeg = 0;
+  S.muryou = false;
+  S.c1a = '';
+  S.c1b = '';
+  S.c4a = '';
+  S.c4b = '';
+  S.breathing = false;
+  S.bc = 0;
+  W.pos = '安心';
+  W.neg = '不安';
+  hist = [];
+  localStorage.removeItem('ntp_draft');
+  resetInputs();
+  applyWords();
+  fwd('s-words');
 }
 
-// ── Init ──
-function onInitAnshin(){
-  S.ia=parseFloat(document.getElementById('sl-ia').value).toFixed(3);
-  setLbl('lbl-if',bcPro(0));fwd('s-if');
-}
-function onInitFuan(){
-  S.ifa=parseFloat(document.getElementById('sl-if').value).toFixed(3);
-  updateCornerGrid();
-  setLbl('lbl-corners-hdr',bcPro(1));fwd('s-corners');
+function saveWords(){
+  const p = document.getElementById('word-pos').value.trim();
+  const n = document.getElementById('word-neg').value.trim();
+  if(!p || !n){
+    const target = !p ? document.getElementById('word-pos') : document.getElementById('word-neg');
+    target.style.borderBottomColor = '#C47A5A';
+    target.focus();
+    return;
+  }
+  W.pos = p;
+  W.neg = n;
+  applyWords();
+  fwd('s-pre-pos');
 }
 
-// ── Corner grid ──
-function updateCornerGrid(){
-  for(let i=0;i<4;i++){
-    const el=document.getElementById('cb-'+i);
-    if(S.done[i]) el.classList.add('done');
-    else el.classList.remove('done');
+function onPrePos(){
+  S.prePos = parseFloat(document.getElementById('sl-pre-pos').value).toFixed(1);
+  fwd('s-pre-neg');
+}
+
+function onPreNeg(){
+  S.preNeg = parseFloat(document.getElementById('sl-pre-neg').value).toFixed(1);
+  fwd('s-c1a');
+}
+
+function onC1A(){
+  const v = document.getElementById('input-c1a').value.trim();
+  if(!v) return;
+  S.c1a = v;
+  fwd('s-c1b');
+}
+
+function onC1B(){
+  const v = document.getElementById('input-c1b').value.trim();
+  if(!v) return;
+  S.c1b = v;
+  document.getElementById('focus-c1breathe1').innerHTML = '「<em>' + escapeHtml(v) + '</em>」が<br>存在しない状態を感じながら<br>深呼吸1回';
+  rcircle('c1breathe1');
+  fwd('s-c1breath1');
+}
+
+function onC4A(){
+  const v = document.getElementById('input-c4a').value.trim();
+  if(!v) return;
+  S.c4a = v;
+  fwd('s-c4b');
+}
+
+function onC4B(){
+  const v = document.getElementById('input-c4b').value.trim();
+  if(!v) return;
+  S.c4b = v;
+  document.getElementById('focus-c4breathe1').innerHTML = '「<em>' + escapeHtml(v) + '</em>」を<br>感じながら<br>深呼吸1回';
+  rcircle('c4breathe1');
+  fwd('s-c4breath1');
+}
+
+function onPostPos(){
+  S.postPos = parseFloat(document.getElementById('sl-post-pos').value).toFixed(1);
+  if(S.muryou){
+    showResult();
+  }else{
+    fwd('s-post-neg');
   }
 }
 
-function startCorner(i){
-  S.curCorner=i;
-  const rDef=getRD()[i];
-  document.getElementById('title-ra').innerHTML=rDef.a;
-  document.getElementById('input-ra').value='';
-  breset('btn-ra');
-  setLbl('lbl-ra','コーナー '+(i+1));
-  fwd('s-ra');
+function setMuryou(){
+  S.muryou = true;
+  S.postPos = '無量';
+  showResult();
 }
 
-function skipRound(step){
-  if(S.curCorner===null)return;
-  if(step==='a'){
-    // Skip entire corner
-    if(!S.rounds[S.curCorner])S.rounds[S.curCorner]={};
-    S.rounds[S.curCorner].a='—';
-    S.rounds[S.curCorner].b='—';
-    S.done[S.curCorner]=true;
-    S.breathing=false;S.bc=0;
-    updateCornerGrid();
-    hist=hist.filter(h=>h!=='s-ra'&&h!=='s-rb'&&h!=='s-rc1'&&h!=='s-rc2');
-    go('s-corners');
-  } else {
-    if(!S.rounds[S.curCorner])S.rounds[S.curCorner]={};
-    S.rounds[S.curCorner].b='—';
-    document.getElementById('focus-c1').innerHTML='深呼吸1回';
-    setLbl('lbl-rc1','コーナー '+(S.curCorner+1));
-    rcircle('c1');S.breathing=false;S.bc=0;
-    fwd('s-rc1');
-  }
-}
-
-function onRoundA(){
-  const v=document.getElementById('input-ra').value.trim();if(!v)return;
-  S.rounds[S.curCorner].a=v;
-  const rDef=getRD()[S.curCorner];
-  document.getElementById('title-rb').innerHTML=rDef.b(v);
-  document.getElementById('input-rb').value='';
-  breset('btn-rb');
-  setLbl('lbl-rb','コーナー '+(S.curCorner+1));
-  fwd('s-rb');
-}
-
-function onRoundB(){
-  const v=document.getElementById('input-rb').value.trim();if(!v)return;
-  S.rounds[S.curCorner].b=v;
-  const b=v;
-  document.getElementById('focus-c1').innerHTML='<em>'+b+'</em><br>を感じながら<br>深呼吸1回';
-  setLbl('lbl-rc1','コーナー '+(S.curCorner+1));
-  rcircle('c1');S.breathing=false;S.bc=0;
-  fwd('s-rc1');
-}
-
-function goToFinal(){
-  setLbl('lbl-fa',bcPro(3));setLbl('lbl-ff',bcPro(3));
-  document.getElementById('sl-fa').value=0;
-  document.getElementById('num-fa').textContent='0.000';
-  fwd('s-fa');
-}
-
-function onFinalAnshin(){
-  S.fa=parseFloat(document.getElementById('sl-fa').value).toFixed(3);
-  document.getElementById('sl-ff').value=0;
-  document.getElementById('num-ff').textContent='0.000';
-  fwd('s-ff');
-}
-function setMuryou(){S.muryou=true;showResult();}
-
-// ── Breathing (1 cycle) ──
-function rcircle(t){
-  const c=document.getElementById('circle-'+t);
-  c.className='breath-circle pulse';c.textContent='';
-  const h=document.getElementById('hint-'+t);
-  if(h)h.style.display='block';
-}
-
-function startBreath(t){
-  if(S.breathing)return;S.breathing=true;
-  const h=document.getElementById('hint-'+t);
-  if(h)h.style.display='none';
-  const c=document.getElementById('circle-'+t);
-  c.classList.remove('pulse');
-  bcycle(t,c);
-}
-
-let wl=null;
-async function awl(){if('wakeLock'in navigator)try{wl=await navigator.wakeLock.request('screen');}catch(e){}}
-function rwl(){if(wl){wl.release();wl=null;}}
-
-function bcycle(t,c){
-  if(S.bc>=1){  // 1 breath only
-    rwl();c.textContent='✓';c.className='breath-circle';
-    setTimeout(()=>afterB(t),900);return;
-  }
-  awl();
-  c.textContent='吸';c.className='breath-circle inhale';
-  setTimeout(()=>{
-    c.textContent='吐';c.className='breath-circle exhale';
-    setTimeout(()=>{S.bc++;bcycle(t,c);},4000);
-  },4000);
-}
-
-function afterB(t){
-  if(t==='c1'){
-    setLbl('lbl-rc2','コーナー '+(S.curCorner+1));
-    rcircle('c2');S.breathing=false;S.bc=0;
-    fwd('s-rc2');
-  } else {
-    // c2 done — mark corner, back to grid
-    S.done[S.curCorner]=true;
-    S.breathing=false;S.bc=0;
-    updateCornerGrid();saveDraft();
-    // pop history back to corners
-    hist=hist.filter(h=>h!=='s-ra'&&h!=='s-rb'&&h!=='s-rc1'&&h!=='s-rc2');
-    go('s-corners');
-  }
-}
-
-// ── Result ──
-
-function arrowSVG(dir,color){
-  const p=dir==='up'
-    ?'M16 3L31 20H22V39H10V20H1Z'
-    :'M16 39L31 22H22V3H10V22H1Z';
-  return '<svg width="30" height="38" viewBox="0 0 32 42" style="vertical-align:middle"><path d="'+p+'" fill="'+color+'"/></svg>';
-}
 function showResult(){
-  if(!S.muryou)S.ff=parseFloat(document.getElementById('sl-ff').value).toFixed(3);
-  document.getElementById('r-normal').style.display=S.muryou?'none':'block';
-  document.getElementById('r-muryou').style.display=S.muryou?'block':'none';
   if(!S.muryou){
-    const fmt=v=>parseFloat(v).toFixed(1)+'%';
-    document.getElementById('r-ia').textContent=fmt(S.ia);
-    document.getElementById('r-if').textContent=fmt(S.ifa);
-    document.getElementById('r-fa').textContent=fmt(S.fa);
-    document.getElementById('r-ff').textContent=fmt(S.ff);
-    const dA=parseFloat(S.fa)-parseFloat(S.ia);
-    const dF=parseFloat(S.ff)-parseFloat(S.ifa);
-    const aCol=dA>=0?'#4A7A66':'#C47A5A';
-    const fCol=dF<=0?'#C47A5A':'#4A7A66';
-    document.getElementById('arr-a').innerHTML=arrowSVG(dA>=0?'up':'down','#5A8A72');
-    document.getElementById('arr-f').innerHTML=arrowSVG(dF<=0?'down':'up','#C47A5A');
-    ['r-ia','r-fa'].forEach(id=>document.getElementById(id).style.color='#5A8A72');
-    ['r-if','r-ff'].forEach(id=>document.getElementById(id).style.color='#C47A5A');
+    S.postNeg = parseFloat(document.getElementById('sl-post-neg').value).toFixed(1);
   }
-    S.prevFa=S.fa;S.prevFf=S.ff;
-  ls('ntp_last',{ia:S.ia,ifa:S.ifa,fa:S.fa,ff:S.ff,muryou:S.muryou,wp:W.pos,wn:W.neg});
-  ls('ntp_today',new Date().toISOString().slice(0,10));
+  document.getElementById('r-normal').style.display = S.muryou ? 'none' : 'block';
+  document.getElementById('r-muryou').style.display = S.muryou ? 'block' : 'none';
+
+  if(!S.muryou){
+    document.getElementById('r-pre-pos').textContent = fmt(S.prePos);
+    document.getElementById('r-pre-neg').textContent = fmt(S.preNeg);
+    document.getElementById('r-post-pos').textContent = fmt(S.postPos);
+    document.getElementById('r-post-neg').textContent = fmt(S.postNeg);
+
+    const dPos = parseFloat(S.postPos) - parseFloat(S.prePos);
+    const dNeg = parseFloat(S.postNeg) - parseFloat(S.preNeg);
+
+    document.getElementById('arr-pos').innerHTML = arrowSVG(dPos >= 0 ? 'up' : 'down', '#5A8A72');
+    document.getElementById('arr-neg').innerHTML = arrowSVG(dNeg <= 0 ? 'down' : 'up', '#C47A5A');
+
+    ['r-pre-pos','r-post-pos'].forEach(id=>document.getElementById(id).style.color='#5A8A72');
+    ['r-pre-neg','r-post-neg'].forEach(id=>document.getElementById(id).style.color='#C47A5A');
+  }
+
+  S.prevPostPos = S.postPos;
+  S.prevPostNeg = S.postNeg;
+
+  ls('ntp_last', {
+    prePos: S.prePos,
+    preNeg: S.preNeg,
+    postPos: S.postPos,
+    postNeg: S.postNeg,
+    muryou: S.muryou,
+    wp: W.pos,
+    wn: W.neg
+  });
+  ls('ntp_today', new Date().toISOString().slice(0,10));
+  localStorage.removeItem('ntp_draft');
   fwd('s-result');
 }
 
-function shareResult(){
-  showQR();
-}
-
-// ── Restart ──
-
-function retryCorners(){
-  // Keep ia/ifa from prev final for comparison
-  S.ia=S.prevFa!==null?S.prevFa:S.fa;
-  S.ifa=S.prevFf!==null?S.prevFf:S.ff;
-  S.fa=0;S.ff=0;S.muryou=false;
-  S.done=[false,false,false,false];
-  S.rounds=[{},{},{},{}];
-  S.breathing=false;S.bc=0;
-  hist=[];
-  applyWords();
-  updateCornerGrid();
-  setLbl('lbl-corners-hdr',bcPro(1));
-  go('s-corners');
-}
-
-function restart(){
-  hist=[];S.done=[false,false,false,false];S.muryou=false;S.breathing=false;localStorage.removeItem('ntp_draft');
-  loadIntro();
-  const c=document.getElementById(cur),n=document.getElementById('s-intro');
-  c.classList.remove('active');c.classList.add('exit');
-  setTimeout(()=>{c.classList.remove('exit');n.classList.add('active');cur='s-intro';backBtn();},120);
-}
-
-// ── Utils ──
-function breset(id){const b=document.getElementById(id);b.disabled=true;b.style.opacity='.45';}
-function wire(id,bid,cb){
-  const inp=document.getElementById(id),btn=document.getElementById(bid);
-  inp.addEventListener('input',()=>{const ok=!!inp.value.trim();btn.disabled=!ok;btn.style.opacity=ok?'1':'.45';});
-  inp.addEventListener('keydown',e=>{if(e.key==='Enter'&&inp.value.trim())cb();});
-}
-wire('input-ra','btn-ra',onRoundA);
-wire('input-rb','btn-rb',onRoundB);
-
-// ── PWA ──
-let dp=null;
-window.addEventListener('beforeinstallprompt',e=>{
-  e.preventDefault();dp=e;
-  if((ls('ntp_launches')||0)>=2&&!ls('ntp_pwa')){
-    setTimeout(()=>{if(cur==='s-intro'&&dp)document.getElementById('pwa-text').textContent='ホームに追加すると、すぐに開けます';document.getElementById('pwa-btn-add').style.display='';document.getElementById('pwa-prompt').classList.add('show');},1500);
+function restartSameTheme(){
+  if(!S.muryou){
+    S.prePos = S.prevPostPos !== null ? parseFloat(S.prevPostPos).toFixed(1) : parseFloat(S.postPos || 0).toFixed(1);
+    S.preNeg = S.prevPostNeg !== null ? parseFloat(S.prevPostNeg).toFixed(1) : parseFloat(S.postNeg || 0).toFixed(1);
+  }else{
+    S.prePos = 0;
+    S.preNeg = 0;
   }
-});
-const isIOS=/iphone|ipad|ipod/i.test(navigator.userAgent)&&!window.MSStream;
-async function pwaAdd(){
-  if(isIOS){
-    document.getElementById('pwa-text').textContent='Safari: 共有 → ホーム画面に追加';
-    document.getElementById('pwa-btn-add').style.display='none';
-    setTimeout(()=>pwaLater(),3000);
+
+  S.postPos = 0;
+  S.postNeg = 0;
+  S.muryou = false;
+  S.c1a = '';
+  S.c1b = '';
+  S.c4a = '';
+  S.c4b = '';
+  S.breathing = false;
+  S.bc = 0;
+
+  hist = [];
+  document.getElementById('input-c1a').value = '';
+  document.getElementById('input-c1b').value = '';
+  document.getElementById('input-c4a').value = '';
+  document.getElementById('input-c4b').value = '';
+  document.getElementById('sl-pre-pos').value = S.prePos;
+  document.getElementById('num-pre-pos').textContent = parseFloat(S.prePos).toFixed(1);
+  document.getElementById('sl-pre-neg').value = S.preNeg;
+  document.getElementById('num-pre-neg').textContent = parseFloat(S.preNeg).toFixed(1);
+  document.getElementById('sl-post-pos').value = 0;
+  document.getElementById('num-post-pos').textContent = '0.0';
+  document.getElementById('sl-post-neg').value = 0;
+  document.getElementById('num-post-neg').textContent = '0.0';
+
+  const c = document.getElementById(cur);
+  const n = document.getElementById('s-c1a');
+  c.classList.remove('active');
+  c.classList.add('exit');
+  setTimeout(()=>c.classList.remove('exit'), 450);
+  setTimeout(()=>{
+    n.classList.add('active');
+    cur = 's-c1a';
+    backBtn();
+    updateProgress('s-c1a');
+    saveDraft();
+  }, 100);
+}
+
+function restartToIntro(){
+  hist = [];
+  S.breathing = false;
+  S.bc = 0;
+  localStorage.removeItem('ntp_draft');
+  loadIntro();
+  const c = document.getElementById(cur);
+  const n = document.getElementById('s-intro');
+  if(c && c !== n){
+    c.classList.remove('active');
+    c.classList.add('exit');
+    setTimeout(()=>c.classList.remove('exit'), 450);
+    setTimeout(()=>{
+      n.classList.add('active');
+      cur = 's-intro';
+      backBtn();
+      updateProgress('s-intro');
+    }, 100);
+  }else{
+    n.classList.add('active');
+    cur = 's-intro';
+    backBtn();
+    updateProgress('s-intro');
+  }
+}
+
+function skipStep(step){
+  if(step === 'c1a'){
+    S.c1a = '—';
+    S.c1b = '—';
+    rcircle('c1breathe1');
+    rcircle('c1breathe2');
+    go('s-c4a');
     return;
   }
-  document.getElementById('pwa-prompt').classList.remove('show');
-  ls('ntp_pwa',true);
-  if(dp){dp.prompt();await dp.userChoice;dp=null;}
+  if(step === 'c1b'){
+    S.c1b = '—';
+    document.getElementById('focus-c1breathe1').innerHTML = 'ネガティブな感覚が<br>存在しない状態を感じながら<br>深呼吸1回';
+    rcircle('c1breathe1');
+    fwd('s-c1breath1');
+    return;
+  }
+  if(step === 'c4a'){
+    S.c4a = '—';
+    S.c4b = '—';
+    rcircle('c4breathe1');
+    rcircle('c4breathe2');
+    go('s-post-pos');
+    return;
+  }
+  if(step === 'c4b'){
+    S.c4b = '—';
+    document.getElementById('focus-c4breathe1').innerHTML = 'ポジティブな感覚を<br>感じながら<br>深呼吸1回';
+    rcircle('c4breathe1');
+    fwd('s-c4breath1');
+  }
 }
-function pwaLater(){document.getElementById('pwa-prompt').classList.remove('show');ls('ntp_pwa',true);}
 
-
-function showQR(){
-  const url=window.location.href.split('?')[0];
-  document.getElementById('qr-url').textContent=url;
-  QRCode.toCanvas(document.getElementById('qr-canvas'),url,{
-    width:200,margin:1,color:{dark:'#2A2A2A',light:'#FFFFFF'}
+function saveDraft(){
+  if(cur === 's-intro' || cur === 's-result'){
+    localStorage.removeItem('ntp_draft');
+    return;
+  }
+  ls('ntp_draft', {
+    cur,
+    hist,
+    S,
+    W,
+    values: {
+      wordPos: document.getElementById('word-pos').value,
+      wordNeg: document.getElementById('word-neg').value,
+      inputC1A: document.getElementById('input-c1a').value,
+      inputC1B: document.getElementById('input-c1b').value,
+      inputC4A: document.getElementById('input-c4a').value,
+      inputC4B: document.getElementById('input-c4b').value,
+      slPrePos: document.getElementById('sl-pre-pos').value,
+      slPreNeg: document.getElementById('sl-pre-neg').value,
+      slPostPos: document.getElementById('sl-post-pos').value,
+      slPostNeg: document.getElementById('sl-post-neg').value
+    }
   });
-  document.getElementById('qr-overlay').classList.add('show');
-}
-function closeQR(){
-  document.getElementById('qr-overlay').classList.remove('show');
 }
 
-document.body.addEventListener('touchmove',e=>{if(e.target.tagName!=='INPUT')e.preventDefault();},{passive:false});
-ls('ntp_launches',(ls('ntp_launches')||0)+1);
+function resumeSession(){
+  const d = ls('ntp_draft');
+  if(!d) return;
+
+  Object.assign(S, d.S || {});
+  Object.assign(W, d.W || {});
+  hist = d.hist || [];
+  applyWords();
+
+  const v = d.values || {};
+  document.getElementById('word-pos').value = v.wordPos || W.pos || '';
+  document.getElementById('word-neg').value = v.wordNeg || W.neg || '';
+  document.getElementById('input-c1a').value = v.inputC1A || '';
+  document.getElementById('input-c1b').value = v.inputC1B || '';
+  document.getElementById('input-c4a').value = v.inputC4A || '';
+  document.getElementById('input-c4b').value = v.inputC4B || '';
+  document.getElementById('sl-pre-pos').value = v.slPrePos || 0;
+  document.getElementById('sl-pre-neg').value = v.slPreNeg || 0;
+  document.getElementById('sl-post-pos').value = v.slPostPos || 0;
+  document.getElementById('sl-post-neg').value = v.slPostNeg || 0;
+  document.getElementById('num-pre-pos').textContent = parseFloat(v.slPrePos || 0).toFixed(1);
+  document.getElementById('num-pre-neg').textContent = parseFloat(v.slPreNeg || 0).toFixed(1);
+  document.getElementById('num-post-pos').textContent = parseFloat(v.slPostPos || 0).toFixed(1);
+  document.getElementById('num-post-neg').textContent = parseFloat(v.slPostNeg || 0).toFixed(1);
+
+  if(S.c1b){
+    document.getElementById('focus-c1breathe1').innerHTML = S.c1b === '—'
+      ? 'ネガティブな感覚が<br>存在しない状態を感じながら<br>深呼吸1回'
+      : '「<em>' + escapeHtml(S.c1b) + '</em>」が<br>存在しない状態を感じながら<br>深呼吸1回';
+  }
+  if(S.c4b){
+    document.getElementById('focus-c4breathe1').innerHTML = S.c4b === '—'
+      ? 'ポジティブな感覚を<br>感じながら<br>深呼吸1回'
+      : '「<em>' + escapeHtml(S.c4b) + '</em>」を<br>感じながら<br>深呼吸1回';
+  }
+
+  const current = document.getElementById(cur);
+  if(current) current.classList.remove('active');
+  const n = document.getElementById(d.cur || 's-words');
+  if(n){
+    n.classList.add('active');
+    cur = d.cur || 's-words';
+    backBtn();
+    updateProgress(cur);
+  }
+}
+
+function loadIntro(){
+  const draft = ls('ntp_draft');
+  if(draft && draft.cur && draft.cur !== 's-intro'){
+    document.getElementById('resume-btn').style.display = 'inline-block';
+  }else{
+    document.getElementById('resume-btn').style.display = 'none';
+  }
+
+  const last = ls('ntp_last');
+  if(last){
+    document.getElementById('prev-badge').style.display = 'block';
+    document.getElementById('intro-spacer').style.display = 'none';
+    if(last.muryou){
+      document.getElementById('prev-text').textContent = '無量';
+    }else{
+      document.getElementById('prev-text').textContent = `${last.wp || ''} ${fmt(last.postPos)} / ${last.wn || ''} ${fmt(last.postNeg)}`;
+    }
+  }else{
+    document.getElementById('prev-badge').style.display = 'none';
+    document.getElementById('intro-spacer').style.display = 'block';
+  }
+
+  const today = new Date().toISOString().slice(0,10);
+  document.getElementById('today-badge').style.display = ls('ntp_today') === today ? 'block' : 'none';
+}
+
+function arrowSVG(dir, color){
+  const p = dir === 'up'
+    ? 'M16 3L31 20H22V39H10V20H1Z'
+    : 'M16 39L31 22H22V3H10V22H1Z';
+  return '<svg width="30" height="38" viewBox="0 0 32 42" style="vertical-align:middle"><path d="' + p + '" fill="' + color + '"/></svg>';
+}
+
+function fmt(v){
+  return parseFloat(v).toFixed(1) + '%';
+}
+
+function escapeHtml(str){
+  return String(str)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;');
+}
+
+function breset(id){
+  const b = document.getElementById(id);
+  b.disabled = true;
+  b.style.opacity = '.45';
+}
+
+function wire(inputId, btnId, cb){
+  const inp = document.getElementById(inputId);
+  const btn = document.getElementById(btnId);
+  inp.addEventListener('input', ()=>{
+    const ok = !!inp.value.trim();
+    btn.disabled = !ok;
+    btn.style.opacity = ok ? '1' : '.45';
+    inp.style.borderBottomColor = '#D4DDD8';
+  });
+  inp.addEventListener('keydown', e=>{
+    if(e.key === 'Enter' && inp.value.trim()) cb();
+  });
+}
+
+wire('input-c1a', 'btn-c1a', onC1A);
+wire('input-c1b', 'btn-c1b', onC1B);
+wire('input-c4a', 'btn-c4a', onC4A);
+wire('input-c4b', 'btn-c4b', onC4B);
+
+function rcircle(name){
+  const c = document.getElementById('circle-' + name);
+  const h = document.getElementById('hint-' + name);
+  if(c){
+    c.className = 'breath-circle pulse';
+    c.textContent = '';
+  }
+  if(h) h.style.display = 'block';
+}
+
+let wakeLock = null;
+async function acquireWakeLock(){
+  if('wakeLock' in navigator){
+    try{ wakeLock = await navigator.wakeLock.request('screen'); }catch(e){}
+  }
+}
+function releaseWakeLock(){
+  if(wakeLock){
+    wakeLock.release();
+    wakeLock = null;
+  }
+}
+
+function startBreath(name){
+  if(S.breathing) return;
+  S.breathing = true;
+  S.bc = 0;
+  const h = document.getElementById('hint-' + name);
+  if(h) h.style.display = 'none';
+  const c = document.getElementById('circle-' + name);
+  c.classList.remove('pulse');
+  breathCycle(name, c);
+}
+
+function breathCycle(name, c){
+  if(S.bc >= 1){
+    releaseWakeLock();
+    c.textContent = '✓';
+    c.className = 'breath-circle';
+    setTimeout(()=>afterBreath(name), 800);
+    return;
+  }
+
+  acquireWakeLock();
+  c.textContent = '吸';
+  c.className = 'breath-circle inhale';
+
+  setTimeout(()=>{
+    c.textContent = '吐';
+    c.className = 'breath-circle exhale';
+    setTimeout(()=>{
+      S.bc++;
+      breathCycle(name, c);
+    }, 4000);
+  }, 4000);
+}
+
+function afterBreath(name){
+  S.breathing = false;
+  S.bc = 0;
+
+  if(name === 'c1breathe1'){
+    rcircle('c1breathe2');
+    fwd('s-c1breath2');
+    return;
+  }
+  if(name === 'c1breathe2'){
+    fwd('s-c4a');
+    return;
+  }
+  if(name === 'c4breathe1'){
+    rcircle('c4breathe2');
+    fwd('s-c4breath2');
+    return;
+  }
+  if(name === 'c4breathe2'){
+    fwd('s-post-pos');
+  }
+}
+
+document.body.addEventListener('touchmove', e=>{
+  if(e.target.tagName !== 'INPUT') e.preventDefault();
+},{passive:false});
+
+applyWords();
 loadIntro();
+updateProgress('s-intro');
 </script>
 </body>
 </html>
+```
