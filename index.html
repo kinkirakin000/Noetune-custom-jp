@@ -224,6 +224,7 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
     <div class="breath-circle pulse" id="circle-peb1" onclick="startBreath('peb1')"></div>
     <div id="hint-peb1" style="position:absolute;bottom:-2.4rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">Tap to start breathing</div>
   </div>
+  <button class="btn-skip" onclick="skipExtremeBreath()">呼吸をスキップ</button>
 </div>
 
 <!-- ====== PAID: Extreme Breathe 2/4 ====== -->
@@ -884,6 +885,13 @@ function startBreath(t){if(breathing)return;breathing=true;var h=document.getEle
 function bCycle(t,c){if(bc>=1){c.textContent='✓';c.className='breath-circle';setTimeout(function(){afterBreath(t);},800);return;}c.textContent='';setTimeout(function(){c.textContent='In';c.className='breath-circle inhale';setTimeout(function(){c.textContent='Out';c.className='breath-circle exhale';setTimeout(function(){bc++;bCycle(t,c);},2100);},1700);},200);}
 var BREATH_NEXT={'peb1':'s-p-ext-b2','peb2':'s-p-ext-b3','peb3':'s-p-ext-b4','peb4':'s-p-q1','pb20':'s-p-b21','pb21':'s-p-b22','pb22':'s-p-b23','pb23':'s-p-b24','pb24':'s-p-measure2'};
 function afterBreath(t){breathing=false;bc=0;var next=BREATH_NEXT[t];if(next){fwd(next);setTimeout(function(){document.querySelectorAll('.breath-circle').forEach(function(c){if(c.textContent==='✓'||c.textContent==='In'||c.textContent==='Out'){c.textContent='';c.className='breath-circle pulse';}});document.querySelectorAll('[id^="hint-"]').forEach(function(h){h.style.display='block';});},150);}}
+
+// ── Skip Extreme Breath ──
+function skipExtremeBreath(){
+  breathing = false;
+  bc = 0;
+  fwd('s-p-q1');
+}
 
 // ── Q1 input wiring ──
 var inp1=document.getElementById('input-q1'),btn1=document.getElementById('btn-q1');
