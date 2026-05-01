@@ -199,20 +199,31 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
   <button class="btn" id="btn-custom-theme" disabled onclick="onCustomThemeContinue()" style="opacity:.45">Continue</button>
 </div>
 
-<!-- ====== PAID: Theme Extreme ====== -->
+<!-- ====== PAID: Theme Extreme Step 1 ====== -->
 
 <div class="screen" id="s-p-theme-extreme">
   <div class="label">FULL SESSION <span style="color:#6B9080">•</span> EXTREME</div>
   <em id="theme-base-display-extreme" style="color:#1A1A1A;font-style:normal;font-weight:500;font-size:1.05rem;display:block;text-align:center;margin-bottom:1.2rem">"..."</em>
   <div class="yes-no-wrap" style="margin-bottom:1rem">
     <button class="yn-btn selected" id="ef-self" onclick="selectExtremeFrame(this,'self')" style="font-size:.82rem;text-align:left;line-height:1.7">「<em class="theme-base-d">"..."</em>に飲み込まれている私はどんな様子？」</button>
-    <button class="yn-btn" id="ef-father" onclick="selectExtremeFrame(this,'father')" style="font-size:.82rem;text-align:left;line-height:1.7">「<em class="theme-base-d">"..."</em>に飲み込まれている父はどんな様子？」</button>
-    <button class="yn-btn" id="ef-mother" onclick="selectExtremeFrame(this,'mother')" style="font-size:.82rem;text-align:left;line-height:1.7">「<em class="theme-base-d">"..."</em>に飲み込まれている母はどんな様子？」</button>
-    <button class="yn-btn" id="ef-person" onclick="selectExtremeFrame(this,'person')" style="font-size:.82rem;text-align:left;line-height:1.7">「<em class="theme-base-d">"..."</em>に飲み込まれている人はどんな様子？」</button>
   </div>
   <input class="text-input" id="input-theme-extreme" placeholder="Type your answer..." autocomplete="off">
   <button class="btn" id="btn-theme-extreme" disabled onclick="onThemeExtreme()" style="opacity:.45">Confirm</button>
   <button class="yn-btn meaningless" onclick="onThemeExtremeNothing()" style="margin-top:12px">Nothing comes up</button>
+</div>
+
+<!-- ====== PAID: Theme Extreme Step 2 ====== -->
+
+<div class="screen" id="s-p-theme-extreme-2">
+  <div class="label">FULL SESSION <span style="color:#6B9080">•</span> EXTREME</div>
+  <em id="theme-base-display-extreme-2" style="color:#1A1A1A;font-style:normal;font-weight:500;font-size:1.05rem;display:block;text-align:center;margin-bottom:1.2rem">"..."</em>
+  <div class="yes-no-wrap" style="margin-bottom:1rem">
+    <button class="yn-btn selected" id="ef2-person-close" onclick="selectExtremeFrame2(this,'person_close')" style="font-size:.82rem;text-align:left;line-height:1.7">「<em class="theme-base-d2">"..."</em>に飲み込まれている身近な人（両親等）はどんな様子？」</button>
+    <button class="yn-btn" id="ef2-person" onclick="selectExtremeFrame2(this,'person')" style="font-size:.82rem;text-align:left;line-height:1.7">「<em class="theme-base-d2">"..."</em>に飲み込まれている人はどんな様子？」</button>
+  </div>
+  <input class="text-input" id="input-theme-extreme-2" placeholder="Type your answer..." autocomplete="off">
+  <button class="btn" id="btn-theme-extreme-2" disabled onclick="onThemeExtremeStep2()" style="opacity:.45">Confirm</button>
+  <button class="yn-btn meaningless" onclick="onThemeExtremeStep2Nothing()" style="margin-top:12px">Nothing comes up</button>
 </div>
 
 <!-- ====== PAID: Extreme Breathe 1/4 ====== -->
@@ -223,7 +234,7 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
   <div style="position:relative;display:inline-block">
     <div class="breath-circle pulse" id="circle-peb1" onclick="startBreath('peb1')"></div>
   </div>
-  <button class="btn-skip" onclick="skipExtremeBreath()">このステップをスキップ</button>
+  <button class="btn-skip" onclick="skipExtremeBreath()">呼吸をスキップ</button>
 </div>
 
 <!-- ====== PAID: Extreme Breathe 2/4 ====== -->
@@ -586,7 +597,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Enter')e.preventDefa
 
 
 function updateBack(){document.getElementById('btn-back').classList.toggle('visible',cur!=='s-p-theme'&&cur!=='s-continue'&&!cur.includes('result')&&cur!=='s-p-complete'&&cur!=='s-p-sub-complete');}
-var SCREEN_ORDER=['s-continue','s-p-theme','s-p-theme-extreme','s-p-ext-b1','s-p-ext-b2','s-p-ext-b3','s-p-ext-b4','s-p-q1','s-p-measure1','s-p-b20','s-p-b21','s-p-b22','s-p-b23','s-p-b24','s-p-measure2','s-p-yn2-past','s-p-yn2-future','s-p-yn2-present','s-p-result','s-p-complete'];
+var SCREEN_ORDER=['s-continue','s-p-theme','s-p-theme-extreme','s-p-theme-extreme-2','s-p-ext-b1','s-p-ext-b2','s-p-ext-b3','s-p-ext-b4','s-p-q1','s-p-measure1','s-p-b20','s-p-b21','s-p-b22','s-p-b23','s-p-b24','s-p-measure2','s-p-yn2-past','s-p-yn2-future','s-p-yn2-present','s-p-result','s-p-complete'];
 function updateProgress(){var i=SCREEN_ORDER.indexOf(cur);document.getElementById('progress').style.width=(i<0?0:(i/(SCREEN_ORDER.length-1))*100)+'%';}
 
 // ── localStorage ──
@@ -704,6 +715,10 @@ function resetForNextExtreme(){
   var btnE=document.getElementById('btn-theme-extreme');if(btnE){btnE.disabled=true;btnE.style.opacity='.45';btnE.style.cursor='default';}
   document.querySelectorAll('#s-p-theme-extreme .yn-btn').forEach(function(b){b.classList.remove('selected');});
   var efSelf=document.getElementById('ef-self');if(efSelf)efSelf.classList.add('selected');
+  var inpE2=document.getElementById('input-theme-extreme-2');if(inpE2)inpE2.value='';
+  var btnE2=document.getElementById('btn-theme-extreme-2');if(btnE2){btnE2.disabled=true;btnE2.style.opacity='.45';btnE2.style.cursor='default';}
+  document.querySelectorAll('#s-p-theme-extreme-2 .yn-btn').forEach(function(b){b.classList.remove('selected');});
+  var ef2first=document.getElementById('ef2-person-close');if(ef2first)ef2first.classList.add('selected');
   applyBaseTheme(D.themeBase);
   applyTopic(D.themeBase);
   breathing=false;bc=0;
@@ -900,16 +915,53 @@ function onThemeExtremeNothing(){
   D.themeExtreme='';
   D.themeActive=D.themeBase;
   D.useExtreme=false;
+  D.extremeEmpty=false;
+  D.reversalEmpty=false;
+  D.isMainThemeMode=false;
+  applyBaseTheme(D.themeBase);
+  var e2=document.getElementById('theme-base-display-extreme-2');if(e2)e2.textContent='"'+D.themeBase+'"';
+  document.querySelectorAll('.theme-base-d2').forEach(function(el){el.textContent='"'+D.themeBase+'"';});
+  var inp2=document.getElementById('input-theme-extreme-2');if(inp2)inp2.value='';
+  var btn2=document.getElementById('btn-theme-extreme-2');if(btn2){btn2.disabled=true;btn2.style.opacity='.45';btn2.style.cursor='default';}
+  document.querySelectorAll('#s-p-theme-extreme-2 .yn-btn').forEach(function(b){b.classList.remove('selected');});
+  var ef2first=document.getElementById('ef2-person-close');if(ef2first)ef2first.classList.add('selected');
+  fwd('s-p-theme-extreme-2');
+}
+function selectExtremeFrame2(btn,frame){
+  document.querySelectorAll('#s-p-theme-extreme-2 .yn-btn').forEach(function(b){b.classList.remove('selected');});
+  btn.classList.add('selected');
+  D.themeExtremeFrame=frame;
+}
+function onThemeExtremeStep2(){
+  var v=document.getElementById('input-theme-extreme-2').value.trim();
+  if(!v)return;
+  D.themeExtreme=v;
+  D.themeActive=D.themeExtreme;
+  D.useExtreme=true;
+  D.extremeEmpty=false;
+  D.reversalEmpty=false;
+  D.isMainThemeMode=false;
+  applyTopic(D.themeActive);
+  var extDisp=document.getElementById('ext-b1-display');if(extDisp)extDisp.textContent='"'+D.themeActive+'"';
+  fwd('s-p-ext-b1');
+}
+function onThemeExtremeStep2Nothing(){
+  D.themeExtreme='';
+  D.themeActive=D.themeBase;
+  D.useExtreme=false;
   D.extremeEmpty=true;
   D.reversalEmpty=false;
   D.isMainThemeMode=true;
   applyBaseTheme(D.themeBase);
   applyTopic(D.themeBase);
   var extDisp=document.getElementById('ext-b1-display');if(extDisp)extDisp.textContent='"'+D.themeActive+'"';
-  fwd('s-p-ext-b1');
+  fwd('s-p-cal1');
 }
+
 var inpExtreme=document.getElementById('input-theme-extreme'),btnExtreme=document.getElementById('btn-theme-extreme');
 if(inpExtreme){inpExtreme.addEventListener('input',function(){var ok=inpExtreme.value.trim().length>0;btnExtreme.disabled=!ok;btnExtreme.style.opacity=ok?'1':'.45';btnExtreme.style.cursor=ok?'pointer':'default';});}
+var inpExtreme2=document.getElementById('input-theme-extreme-2'),btnExtreme2=document.getElementById('btn-theme-extreme-2');
+if(inpExtreme2){inpExtreme2.addEventListener('input',function(){var ok=inpExtreme2.value.trim().length>0;btnExtreme2.disabled=!ok;btnExtreme2.style.opacity=ok?'1':'.45';btnExtreme2.style.cursor=ok?'pointer':'default';});}
 
 
 // ── Session controls ──
