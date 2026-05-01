@@ -273,6 +273,7 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
   <div style="position:relative;display:inline-block">
     <div class="breath-circle pulse" id="circle-pcal1" onclick="startBreath('pcal1')"></div>
   </div>
+  <button class="btn-skip" onclick="skipCalibrationBreath()">この調整をスキップ</button>
 </div>
 
 <!-- ====== PAID: Calibration 2/3 ====== -->
@@ -314,7 +315,7 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
 
 <div class="screen" id="s-p-measure1">
   <div class="label">FULL SESSION <span style="color:#6B9080">•</span> MEASURE</div>
-  <div class="title">今の自分の中で、<em id="q1-title-measure1">"..."</em> の割合はどれくらい？</div>
+  <div class="title">これからの人生の時間の中で、<em id="q1-title-measure1">"..."</em> の割合はどれくらい？</div>
   <em id="q1-display-measure1" style="color:#1A1A1A;font-style:normal;font-weight:500;font-size:1.05rem;display:block;text-align:center;margin-bottom:1rem">"..."</em>
   <div class="score-num" id="num-measure1" style="color:#6B9080;visibility:hidden">—</div>
   <div class="slider-wrap">
@@ -377,7 +378,7 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
 
 <div class="screen" id="s-p-measure2">
   <div class="label">FULL SESSION <span style="color:#6B9080">•</span> MEASURE</div>
-  <div class="title">今の自分の中で、<em id="q1-title-measure2">"..."</em> の割合はどれくらい？</div>
+  <div class="title">これからの人生の時間の中で、<em id="q1-title-measure2">"..."</em> の割合はどれくらい？</div>
   <em id="q1-display-measure2" style="color:#1A1A1A;font-style:normal;font-weight:500;font-size:1.05rem;display:block;text-align:center;margin-bottom:1rem">"..."</em>
   <div class="score-num" id="num-measure2" style="color:#6B9080;visibility:hidden">—</div>
   <div class="slider-wrap">
@@ -881,11 +882,18 @@ function showPaidResult(){
 // ── Breathing ──
 function startBreath(t){if(breathing)return;breathing=true;var c=document.getElementById('circle-'+t);c.classList.remove('pulse');bc=0;setTimeout(function(){bCycle(t,c);},600);}
 function bCycle(t,c){if(bc>=1){c.textContent='✓';c.className='breath-circle';setTimeout(function(){afterBreath(t);},800);return;}c.textContent='';setTimeout(function(){c.textContent='In';c.className='breath-circle inhale';setTimeout(function(){c.textContent='Out';c.className='breath-circle exhale';setTimeout(function(){bc++;bCycle(t,c);},2100);},1700);},200);}
-var BREATH_NEXT={'peb1':'s-p-ext-b2','peb2':'s-p-ext-b3','peb3':'s-p-ext-b4','peb4':'s-p-q1','pb20':'s-p-b21','pb21':'s-p-b22','pb22':'s-p-b23','pb23':'s-p-b24','pb24':'s-p-measure2'};
+var BREATH_NEXT={'pcal1':'s-p-cal2','pcal2':'s-p-cal3','pcal3':'s-p-q1','peb1':'s-p-ext-b2','peb2':'s-p-ext-b3','peb3':'s-p-ext-b4','peb4':'s-p-q1','pb20':'s-p-b21','pb21':'s-p-b22','pb22':'s-p-b23','pb23':'s-p-b24','pb24':'s-p-measure2'};
 function afterBreath(t){breathing=false;bc=0;var next=BREATH_NEXT[t];if(next){fwd(next);setTimeout(function(){document.querySelectorAll('.breath-circle').forEach(function(c){if(c.textContent==='✓'||c.textContent==='In'||c.textContent==='Out'){c.textContent='';c.className='breath-circle pulse';}})},150);}}
 
 // ── Skip Extreme Breath ──
 function skipExtremeBreath(){
+  breathing = false;
+  bc = 0;
+  fwd('s-p-q1');
+}
+
+// ── Skip Calibration Breath ──
+function skipCalibrationBreath(){
   breathing = false;
   bc = 0;
   fwd('s-p-q1');
