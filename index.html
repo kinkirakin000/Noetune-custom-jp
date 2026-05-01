@@ -68,22 +68,22 @@ input[type=range]::-moz-range-thumb{width:32px;height:32px;background:#6B9080;bo
 .r-sep{font-size:1.1rem;color:#C8C8C4;margin:0 .3rem;font-weight:300;font-family:sans-serif}
 .r-after{}
 .yes-no-wrap{display:flex;flex-direction:column;gap:12px;width:100%;max-width:280px;margin-bottom:1.2rem}
-.yn-btn{padding:1rem 1.2rem;border-radius:16px;border:1.5px solid #E4E4DE;background:#fff;cursor:pointer;text-align:center;font-family:‘Noto Serif JP’,serif;font-size:.95rem;color:#1A1A1A;transition:all .25s;letter-spacing:.06em}
+.yn-btn{padding:1rem 1.2rem;border-radius:16px;border:1.5px solid #E4E4DE;background:#fff;cursor:pointer;text-align:center;font-family:'Noto Serif JP',serif;font-size:.95rem;color:#1A1A1A;transition:all .25s;letter-spacing:.06em}
 .yn-btn.meaningless{opacity:1;color:#6B9080;border-color:#6B9080;font-weight:500}
 .yn-btn:active{transform:scale(.97)}
 .yn-btn.selected{background:#F2F7F5;border-color:#6B9080;color:#6B9080}
-.theme-btn{width:100%;padding:.7rem 1rem;border-radius:12px;border:1.5px solid #E4E4DE;background:#fff;cursor:pointer;text-align:center;font-family:‘Noto Serif JP’,serif;font-size:.88rem;color:#555;transition:all .22s;letter-spacing:.05em}
+.theme-btn{width:100%;padding:.7rem 1rem;border-radius:12px;border:1.5px solid #E4E4DE;background:#fff;cursor:pointer;text-align:center;font-family:'Noto Serif JP',serif;font-size:.88rem;color:#555;transition:all .22s;letter-spacing:.05em}
 .theme-btn:active{transform:scale(.97)}
 .theme-btn.selected{background:#F2F7F5;border-color:#6B9080;color:#6B9080;font-weight:500}
 .theme-btn.locked{color:#C0C0B8;border-color:#EAEAE6;background:#FAFAF7;cursor:pointer}
 .theme-btn.locked:active{transform:scale(.97)}
 .lock-icon{font-size:.8rem;margin-left:.3rem;opacity:.7}
 .paywall-box{background:#fff;border:1.5px solid #E4E4DE;border-radius:20px;padding:2rem 1.5rem;max-width:320px;width:100%;text-align:center}
-.paywall-box .pw-title{font-family:‘Noto Serif JP’,serif;font-size:1.2rem;font-weight:500;margin-bottom:.8rem;letter-spacing:.08em}
+.paywall-box .pw-title{font-family:'Noto Serif JP',serif;font-size:1.2rem;font-weight:500;margin-bottom:.8rem;letter-spacing:.08em}
 .paywall-box .pw-desc{font-size:.82rem;color:#888;line-height:1.8;margin-bottom:1.6rem}
 .paywall-box .pw-feature{display:flex;align-items:center;gap:.5rem;padding:.35rem 0;font-size:.82rem;color:#555;text-align:left}
-.paywall-box .pw-feature::before{content:‘◇’;color:#6B9080;font-size:.8rem}
-.pw-price-btn{width:100%;padding:14px;background:#1A1A1A;color:#FAFAF7;border:none;border-radius:30px;font-size:.95rem;cursor:pointer;font-family:‘Noto Serif JP’,serif;letter-spacing:.1em;margin-top:1.6rem}
+.paywall-box .pw-feature::before{content:'◇';color:#6B9080;font-size:.8rem}
+.pw-price-btn{width:100%;padding:14px;background:#1A1A1A;color:#FAFAF7;border:none;border-radius:30px;font-size:.95rem;cursor:pointer;font-family:'Noto Serif JP',serif;letter-spacing:.1em;margin-top:1.6rem}
 .pw-price-btn:active{opacity:.7}
 .pw-annual{font-size:.7rem;color:#B0B0A8;margin-top:.6rem;letter-spacing:.05em}
 @media(max-height:640px){.title{font-size:1.1rem;margin-bottom:1.5rem}.score-num{font-size:2.2rem}.breath-circle{width:110px;height:110px}.screen{padding:2rem 1.2rem 1.5rem}}
@@ -96,7 +96,7 @@ background:#FAFAF7;
 display:flex;flex-direction:column;
 align-items:center;justify-content:center;
 padding:120px 100px;
-font-family:‘Noto Serif JP’,Georgia,serif;
+font-family:'Noto Serif JP',Georgia,serif;
 box-sizing:border-box;
 z-index:-1;
 }
@@ -222,9 +222,8 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
   <div class="breath-focus">その状態（<em id="ext-b1-display" style="color:#1A1A1A;font-style:normal;font-weight:500">"..."</em>）に対する抵抗を感じながら、1回深呼吸</div>
   <div style="position:relative;display:inline-block">
     <div class="breath-circle pulse" id="circle-peb1" onclick="startBreath('peb1')"></div>
-    <div id="hint-peb1" style="position:absolute;bottom:-2.4rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">Tap to start breathing</div>
   </div>
-  <button class="btn-skip" onclick="skipExtremeBreath()">呼吸をスキップ</button>
+  <button class="btn-skip" onclick="skipExtremeBreath()">このステップをスキップ</button>
 </div>
 
 <!-- ====== PAID: Extreme Breathe 2/4 ====== -->
@@ -234,7 +233,6 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
   <div class="breath-focus">その抵抗以外の全てを感じながら、1回深呼吸</div>
   <div style="position:relative;display:inline-block">
     <div class="breath-circle pulse" id="circle-peb2" onclick="startBreath('peb2')"></div>
-    <div id="hint-peb2" style="position:absolute;bottom:-2.4rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">Tap to start breathing</div>
   </div>
 </div>
 
@@ -245,7 +243,6 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
   <div class="breath-focus">その抵抗が存在しない状態を感じながら、1回深呼吸</div>
   <div style="position:relative;display:inline-block">
     <div class="breath-circle pulse" id="circle-peb3" onclick="startBreath('peb3')"></div>
-    <div id="hint-peb3" style="position:absolute;bottom:-2.4rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">Tap to start breathing</div>
   </div>
 </div>
 
@@ -256,7 +253,6 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
   <div class="breath-focus">あるがままのすべてを感じながら、1回深呼吸</div>
   <div style="position:relative;display:inline-block">
     <div class="breath-circle pulse" id="circle-peb4" onclick="startBreath('peb4')"></div>
-    <div id="hint-peb4" style="position:absolute;bottom:-2.4rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">Tap to start breathing</div>
   </div>
 </div>
 
@@ -267,7 +263,6 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
   <div class="breath-focus">Feel the resistance to <em class="topic-d">"Overthinking"</em> —<br>while feeling it,<br>take one deep breath.</div>
   <div style="position:relative;display:inline-block">
     <div class="breath-circle pulse" id="circle-pcal1" onclick="startBreath('pcal1')"></div>
-    <div id="hint-pcal1" style="position:absolute;bottom:-2.4rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">Tap to start breathing</div>
   </div>
 </div>
 
@@ -278,7 +273,6 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
   <div class="breath-focus">Feel everything —<br>except that resistance.<br><br>While feeling it,<br>take one deep breath.</div>
   <div style="position:relative;display:inline-block">
     <div class="breath-circle pulse" id="circle-pcal2" onclick="startBreath('pcal2')"></div>
-    <div id="hint-pcal2" style="position:absolute;bottom:-2.4rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">Tap to start breathing</div>
   </div>
 </div>
 
@@ -289,7 +283,6 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
   <div class="breath-focus">Feel everything, as it is —<br>while feeling all of it,<br>take one deep breath.</div>
   <div style="position:relative;display:inline-block">
     <div class="breath-circle pulse" id="circle-pcal3" onclick="startBreath('pcal3')"></div>
-    <div id="hint-pcal3" style="position:absolute;bottom:-2.4rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">Tap to start breathing</div>
   </div>
 </div>
 
@@ -298,10 +291,7 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
 <div class="screen" id="s-p-q1">
   <div class="label">FULL SESSION <span style="color:#6B9080">•</span> REVERSAL</div>
   <div class="yes-no-wrap" style="margin-bottom:1.4rem">
-    <button class="yn-btn selected" id="q-frame-a" onclick="selectFrame(this)" style="font-size:.82rem;text-align:left;line-height:1.7">「<em class="topic-d">"Overthinking"</em>を選択していない私はどんな様子？」</button>
-    <button class="yn-btn" id="q-frame-b" onclick="selectFrame(this)" style="font-size:.82rem;text-align:left;line-height:1.7">「<em class="topic-d">"Overthinking"</em>が微塵もない私はどんな様子？」</button>
-    <button class="yn-btn" id="q-frame-c" onclick="selectFrame(this)" style="font-size:.82rem;text-align:left;line-height:1.7">「<em class="topic-d">"Overthinking"</em>という概念が全く存在しない私はどんな様子？」</button>
-    <button class="yn-btn" id="q-frame-d" onclick="selectFrame(this)" style="font-size:.82rem;text-align:left;line-height:1.7">「<em class="topic-d">"Overthinking"</em>が選択肢として存在しない私はどんな様子？」</button>
+    <button class="yn-btn selected" id="q-frame-b" onclick="selectFrame(this)" style="font-size:.82rem;text-align:left;line-height:1.7">「<em class="topic-d">"Overthinking"</em>が微塵もない私はどんな様子？」</button>
     <button class="yn-btn" id="q-frame-e" onclick="selectFrame(this)" style="font-size:.82rem;text-align:left;line-height:1.7">「<em class="topic-d">"Overthinking"</em>が存在しない結果どうなる？」</button>
   </div>
   <input class="text-input" id="input-q1" placeholder="Type your answer..." autocomplete="off">
@@ -333,7 +323,6 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
   <div class="breath-focus">その状態（<em id="q1-display-b20" style="color:#1A1A1A;font-style:normal;font-weight:500;font-size:1.05rem">"..."</em>）に対する抵抗を感じながら、1回深呼吸</div>
   <div style="position:relative;display:inline-block">
     <div class="breath-circle pulse" id="circle-pb20" onclick="startBreath('pb20')"></div>
-    <div id="hint-pb20" style="position:absolute;bottom:-2.4rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">Tap to start breathing</div>
   </div>
 </div>
 
@@ -342,7 +331,6 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
   <div class="breath-focus">その抵抗以外の全てを感じながら、1回深呼吸</div>
   <div style="position:relative;display:inline-block">
     <div class="breath-circle pulse" id="circle-pb21" onclick="startBreath('pb21')"></div>
-    <div id="hint-pb21" style="position:absolute;bottom:-2.4rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">Tap to start breathing</div>
   </div>
 </div>
 
@@ -353,7 +341,6 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
   <div class="breath-focus">その抵抗が存在しない状態を感じながら、1回深呼吸</div>
   <div style="position:relative;display:inline-block">
     <div class="breath-circle pulse" id="circle-pb22" onclick="startBreath('pb22')"></div>
-    <div id="hint-pb22" style="position:absolute;bottom:-2.4rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">Tap to start breathing</div>
   </div>
 </div>
 
@@ -364,7 +351,6 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
   <div class="breath-focus">最初の<em id="q1-display-b23" style="color:#1A1A1A;font-style:normal;font-weight:500">"..."</em>の状態を感じながら、1回深呼吸</div>
   <div style="position:relative;display:inline-block">
     <div class="breath-circle pulse" id="circle-pb23" onclick="startBreath('pb23')"></div>
-    <div id="hint-pb23" style="position:absolute;bottom:-2.4rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">Tap to start breathing</div>
   </div>
 </div>
 
@@ -375,7 +361,6 @@ width:140px;height:140px;border-radius:6px;opacity:.6;display:block;
   <div class="breath-focus">あるがままのすべてを感じながら、1回深呼吸</div>
   <div style="position:relative;display:inline-block">
     <div class="breath-circle pulse" id="circle-pb24" onclick="startBreath('pb24')"></div>
-    <div id="hint-pb24" style="position:absolute;bottom:-2.4rem;left:0;right:0;text-align:center;font-size:.7rem;color:#C0C0B8;letter-spacing:.1em;font-family:'Noto Serif JP',serif;pointer-events:none">Tap to start breathing</div>
   </div>
 </div>
 
@@ -677,7 +662,7 @@ function onCustomThemeContinue(){
 function selectFrame(btn){
   document.querySelectorAll('#s-p-q1 .yn-btn').forEach(function(b){b.classList.remove('selected');});
   btn.classList.add('selected');
-  var frameMap={'q-frame-a':'not_choose_self','q-frame-b':'none_self','q-frame-c':'no_concept_self','q-frame-d':'no_option_self','q-frame-e':'result_without_theme'};
+  var frameMap={'q-frame-b':'none_self','q-frame-e':'result_without_theme'};
   D.questionFrame=frameMap[btn.id]||'not_choose_self';
 }
 function selectExtremeFrame(btn,frame){
@@ -881,10 +866,10 @@ function showPaidResult(){
 }
 
 // ── Breathing ──
-function startBreath(t){if(breathing)return;breathing=true;var h=document.getElementById('hint-'+t);if(h)h.style.display='none';var c=document.getElementById('circle-'+t);c.classList.remove('pulse');bc=0;setTimeout(function(){bCycle(t,c);},600);}
+function startBreath(t){if(breathing)return;breathing=true;var c=document.getElementById('circle-'+t);c.classList.remove('pulse');bc=0;setTimeout(function(){bCycle(t,c);},600);}
 function bCycle(t,c){if(bc>=1){c.textContent='✓';c.className='breath-circle';setTimeout(function(){afterBreath(t);},800);return;}c.textContent='';setTimeout(function(){c.textContent='In';c.className='breath-circle inhale';setTimeout(function(){c.textContent='Out';c.className='breath-circle exhale';setTimeout(function(){bc++;bCycle(t,c);},2100);},1700);},200);}
 var BREATH_NEXT={'peb1':'s-p-ext-b2','peb2':'s-p-ext-b3','peb3':'s-p-ext-b4','peb4':'s-p-q1','pb20':'s-p-b21','pb21':'s-p-b22','pb22':'s-p-b23','pb23':'s-p-b24','pb24':'s-p-measure2'};
-function afterBreath(t){breathing=false;bc=0;var next=BREATH_NEXT[t];if(next){fwd(next);setTimeout(function(){document.querySelectorAll('.breath-circle').forEach(function(c){if(c.textContent==='✓'||c.textContent==='In'||c.textContent==='Out'){c.textContent='';c.className='breath-circle pulse';}});document.querySelectorAll('[id^="hint-"]').forEach(function(h){h.style.display='block';});},150);}}
+function afterBreath(t){breathing=false;bc=0;var next=BREATH_NEXT[t];if(next){fwd(next);setTimeout(function(){document.querySelectorAll('.breath-circle').forEach(function(c){if(c.textContent==='✓'||c.textContent==='In'||c.textContent==='Out'){c.textContent='';c.className='breath-circle pulse';}})},150);}}
 
 // ── Skip Extreme Breath ──
 function skipExtremeBreath(){
